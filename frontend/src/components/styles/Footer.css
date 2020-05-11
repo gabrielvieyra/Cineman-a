@@ -1,0 +1,30 @@
+.logo-footer {
+    width: 100%;
+    max-width: 222px;  
+}
+
+.copy {
+    color: #000092;
+}
+
+.icon-footer {
+    font-size: 1.6em;
+    color: #000092;
+}
+
+@media (max-width: 767px) {
+
+	.copy{
+        text-align: center;
+		
+    }
+
+    .icon {
+        justify-content: center !important;
+    }
+
+    .logo-footer {
+        padding: 15px 0px 20px 0px; 
+    }
+    
+}

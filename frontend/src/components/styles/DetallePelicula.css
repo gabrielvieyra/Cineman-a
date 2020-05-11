@@ -1,0 +1,28 @@
+.title-detalle {
+    font-size: 21px;
+    color: #000092;
+    /*background-color: #f2f4f5;*/
+    background-color: #e6e2e1;
+}
+
+.reserva {
+    font-size: 18px;
+    color: #000092;
+}
+
+.btn-search {
+    color: #000092;
+    background-color: #e6e2e1;
+    height: 38px;
+}
+
+/* Altura videos */
+@media (max-width: 991px) {
+
+	.video-heigh{
+        height: 300px;
+		padding-bottom: 0 !important;
+    }
+
+    
+}

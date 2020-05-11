@@ -1,0 +1,43 @@
+.logo {
+    width: 100%;
+    max-width: 222px;
+ }
+
+.nav-header {
+    color: #000092 !important;
+}
+
+.nav-header:hover {
+    color: #212529 !important;
+    opacity: 0.9;
+}
+
+.search {
+    width: 260px !important;
+    height: 38px;
+}
+
+.btn-search {
+    color: #000092;
+    background-color: #e6e2e1;
+    height: 38px;
+}
+
+.btn-margin {
+    margin-right: 13px;
+}
+
+@media (max-width: 1199px) {
+    
+	.btn-margin{
+        margin: 10px 0px;
+		
+    }
+
+    .search-media{
+        padding: 0 !important;
+		
+    }
+    
+
+}
