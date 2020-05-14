@@ -44,12 +44,12 @@ const DetallePelicula = () => {
 
                     <div className="d-flex justify-content-between px-2">
                         <span>Origen</span>
-                        <span>{pelicula.ori_id}</span>
+                        <span>{pelicula.ori_pais}</span>
                     </div>
 
                     <div className="d-flex justify-content-between px-2">
                         <span>Género</span>
-                        <span>{pelicula.gen_id}</span>
+                        <span>{pelicula.gen_genero}</span>
                     </div>
 
                     <div className="d-flex justify-content-between px-2">
@@ -59,7 +59,7 @@ const DetallePelicula = () => {
 
                     <div className="d-flex justify-content-between px-2">
                         <span>Clasificación</span>
-                        <span>{pelicula.cla_id}</span>
+                        <span>{pelicula.cla_clasificación}</span>
                     </div>
                 </Col>
 

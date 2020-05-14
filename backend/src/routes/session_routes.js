@@ -1,4 +1,5 @@
 const express = require('express');
+const conexion = require('../connection')
 const router  = express.Router();
 
 router.post('/', (req, res) =>{
