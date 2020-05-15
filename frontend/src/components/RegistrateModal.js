@@ -3,8 +3,6 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import './styles/LoginModal.css';
 import Form from 'react-bootstrap/Form';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
 
 const RegistrateModal = (props) => {
 
@@ -51,16 +49,3 @@ const RegistrateModal = (props) => {
 
 export default RegistrateModal;
 
-/*
-<div class="modal-body">
-
-			<form autocomplete="off">
-			  
-			  <div class="form-group">
-			    <button name="submit" type="submit" class="btn">Registrarme</button>
-			  </div>
-
-            </form>
-            
-		  </div>
-		  */

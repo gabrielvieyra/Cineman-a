@@ -57,7 +57,7 @@ const LoginModal = (props) => {
             <Modal.Body>
 
 				<Form autocomplete="off">
-					<Form.Group controlId="formBasicEmail">
+					<Form.Group>
 						<Row>
 							<Col md={4} className="py-2">
 								<Form.Label className="m-0">Nombre de usuario</Form.Label>
@@ -73,7 +73,7 @@ const LoginModal = (props) => {
 						</Row>
 					</Form.Group>
 
-  					<Form.Group controlId="formBasicPassword">
+  					<Form.Group>
 						<Row>
 							<Col md={4} className="py-2">
     							<Form.Label className="m-0">Contraseña</Form.Label>

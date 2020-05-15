@@ -1,3 +1,6 @@
+process.env.BASE_URL   = 'http://localhost:8888/';
+process.env.IMAGES_URL = process.env.BASE_URL + 'images/';
+
 const express = require('express');
 const cors =require('cors');
 const bodyParser = require('body-parser');

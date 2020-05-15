@@ -1,32 +1,58 @@
 const express = require('express');
-const conexion = require('../connection')
 const router  = express.Router();
+const conexion = require('../connection')
 
 router.post('/', (req, res) =>{
 
-    if ( req.body.user === 'pepe' && req.body.password === '123456' ){
-        
-        req.session.user = 'pepe';
+    let sql = `
+                 SELECT *
+                 FROM usuarios
+                 WHERE usu_nick = ?
+                   AND usu_contraseña = ?`;
 
-        res.json(
-            {
-                status     : 'ok',
-                message    : 'sesión iniciada',
-                loggedUser : {
-                                id     : 1,
-                                nombre : 'Gabriel'
-                             }
+    let values = [
+                    req.body.user,
+                    req.body.password 
+                 ]
+        
+    conexion.query(sql, values, (err, result, fields) => {
+        
+        if ( err ) {
+            res.json(
+                {
+                    status : 'error',
+                    message : 'No es posible acceder en este momento. Intente nuevamente en unos minutos.'
+                }
+            )
+        }else{
+            
+            if(result.length == 1){
+                req.session.user   = req.body.user;
+                req.session.userId = result[0].usu_id;
+
+                res.json(
+                    {
+                        status     : 'ok',
+                        message    : 'sesión iniciada',
+                        loggedUser : {
+                                        id     : req.session.userId,
+                                        nombre : result[0].usu_nombre
+                                     }
+                    }
+                )
             }
-        )
-    }
-    else{
-        res.json(
-            {
-                status  : 'error',
-                message : 'Usuario y/o contraseña no validos'
+            else{
+                res.json(
+                    {
+                        status  : 'error',
+                        message : 'Usuario y/o contraseña no validos'
+                    }
+                );
             }
-        );
-    }
+
+        }
+    })
+
 })
 
 router.delete('/', (req, res) => {

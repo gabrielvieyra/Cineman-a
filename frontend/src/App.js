@@ -6,7 +6,7 @@ import Titulo from './components/Titulo';
 import ListadoPeliculas from './components/ListadoPeliculas';
 import Slider from './components/Slider';
 import DetallePelicula from './components/DetallePelicula';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import ProximosEstrenos from './components/ProximosEstrenos';
 import DetalleProximamente from './components/DetalleProximamente';
 import NoticiasDestacadas from './components/NoticiasDestacadas';

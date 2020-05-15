@@ -95,6 +95,7 @@ const NavigationBar = (props) => {
     />
 
     <RegistrateModal show={showRegistrateModal} handleHide={handleHideRegistrateModal}/>
+    
     </>
   )
 }
