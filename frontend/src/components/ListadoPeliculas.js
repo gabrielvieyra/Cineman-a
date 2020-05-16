@@ -37,33 +37,6 @@ const ListadoPeliculas = () => {
                     )
                 }
                 
-                 {/*
-                <Peliculas imagen="images/onward.webp"
-                           nombre="Unidos" 
-                           puntuación="9.0"
-                           id="2"
-                />
-                <Peliculas imagen="images/aves-presa2.jpg"
-                           nombre="Aves de presa" 
-                           puntuación="6.5"
-                           id="3"
-                />
-                <Peliculas imagen="images/bad-boys2.jpg"
-                           nombre="Bad boys 2" 
-                           puntuación="8.5"
-                           id="4"
-                />
-                <Peliculas imagen="images/guns-akimbo.jpg"
-                           nombre="Guns akimbo" 
-                           puntuación="5.5"
-                           id="5"
-                />
-                <Peliculas imagen="images/sonic-estrenos.jpg"
-                           nombre="Sonic" 
-                           puntuación="9.2"
-                           id="6"
-                />
-                */}
             </Row>
         </article>
     )

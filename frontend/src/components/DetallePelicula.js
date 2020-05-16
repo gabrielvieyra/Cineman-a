@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import {useParams} from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
-import './styles/DetallePelicula.css';
+import './styles/Detalle.css';
 
 const DetallePelicula = () => {
 
@@ -30,7 +30,7 @@ const DetallePelicula = () => {
         <Container className="mb-2">
             <Row className="bg-white">
                 <Col lg={6} className="p-3 video-heigh">
-                    <iframe className="w-100 h-100" src="https://www.youtube.com/embed/vOUVVDWdXbo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe className="w-100 h-100" src={pelicula.pel_trailer} frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </Col>
 
                 <Col lg={6} className="p-3">

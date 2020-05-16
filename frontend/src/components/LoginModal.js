@@ -56,7 +56,7 @@ const LoginModal = (props) => {
 
             <Modal.Body>
 
-				<Form autocomplete="off">
+				
 					<Form.Group>
 						<Row>
 							<Col md={4} className="py-2">
@@ -101,7 +101,7 @@ const LoginModal = (props) => {
     						</Col>
 						</Row>
   					</Form.Group>	
-				</Form>
+				
 				
             </Modal.Body>
 

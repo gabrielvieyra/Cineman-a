@@ -8,6 +8,6 @@
 		}
 	],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "proyecto_prueba"
+		"liveServer.settings.multiRootWorkspaceName": null
 	}
 }
