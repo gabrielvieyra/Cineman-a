@@ -58,7 +58,10 @@ function App() {
 
                                         <Titulo titulo="Estrenos" />
     
-                                        <ListadoPeliculas />
+                                        <ListadoPeliculas type="peliculas"
+                                                          user={usuario}
+
+                                        />
 
                                         <Titulo titulo="Próximos estrenos" />
 
@@ -118,18 +121,6 @@ function App() {
                                     }
           />
 
-          <Route exact path="/favoritos" children={
-                                      <>
-                                        <Titulo titulo="Compras" />
-
-                                        <Titulo titulo="Peliculas favoritas" />
-
-                                        <Titulo titulo="Noticias favoritas" />
-
-                                      </>
-                                    }
-          />
-
           <Route exact path="/peliculas/:id" children={
 
                                         <DetallePelicula />
@@ -143,6 +134,29 @@ function App() {
                                       
                                     }
           />
+
+          { usuario &&
+            <Route exact path="/favoritos" children={
+                                        <>
+                                          <Titulo titulo="Compras" />
+
+                                          <Titulo titulo="Peliculas favoritas" />
+
+                                          <ListadoPeliculas user={usuario}
+                                                            type="favoritos"
+                                        
+                                          />
+
+                                          <Titulo titulo="Noticias favoritas" />
+
+                                        </>
+                                      }
+            />
+
+          }
+
+          <Redirect to={ { pathname: '/'} } />
+
         </Switch>
         
         <Footer />

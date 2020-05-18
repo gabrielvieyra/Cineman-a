@@ -1,22 +1,55 @@
 import React, {useState, useEffect} from 'react';
 import Row from 'react-bootstrap/Row';
 import Peliculas from './Peliculas';
+import Swal from 'sweetalert2';
 
-const ListadoPeliculas = () => {
+const ListadoPeliculas = (props) => {
 
     const [ peliculas, setPeliculas ] =useState([])
 
-    useEffect( ()=>{
-            fetch('http://localhost:8888/peliculas').then(
+    const handleChangeFavStatus = (isFav, pelId, userId)=>{
+
+        let url = 'http://localhost:8888/favoritos';
+
+        const formData = new FormData();
+
+        formData.append('userId', userId);
+        formData.append('pelId', pelId);
+        
+        let method = isFav ? 'DELETE' : 'POST';
+
+        fetch(url, {
+            method,
+            body: formData,
+            credentials : 'include'
+        }).then( response => response.json() )
+        .then( data =>{
+            cargarListadoPeliculas();
+
+            Swal.fire(
+                {
+                    title: data.message,
+                    icon: "success"
+                }
+            )
+
+        })
+    }
+
+    const cargarListadoPeliculas = ()=>{
+
+        let endpoint = 'peliculas';
+
+        fetch( `http://localhost:8888/${endpoint}`).then(
                 response => response.json()
             ).then(
                 data => {
-                    setPeliculas(data)
+                    setPeliculas( data );
                 }
             )
-    }, []
+    }
 
-    )
+    useEffect( cargarListadoPeliculas, [props.user] );
 
     return(
         <article>
@@ -29,6 +62,10 @@ const ListadoPeliculas = () => {
                                                        nombre={pelicula.pel_titulo}
                                                        puntuación={pelicula.pel_puntuacion}
                                                        id={pelicula.pel_id}
+                                                       type={props.type}
+                                                       isFav={false}
+                                                       user={props.user}
+                                                       onChangeFavStatus={handleChangeFavStatus}
                                                        
                 />
                                         )

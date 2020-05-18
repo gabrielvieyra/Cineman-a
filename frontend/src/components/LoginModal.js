@@ -5,6 +5,7 @@ import './styles/LoginModal.css';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import Swal from 'sweetalert2';
 
 const LoginModal = (props) => {
 
@@ -31,7 +32,12 @@ const LoginModal = (props) => {
 					props.handleLoginSuccess(data.loggedUser);
 					props.handleHide();       
                 }else{
-                    alert(data.message);
+					Swal.fire(
+						{
+							text: data.message,
+							icon: 'error'
+						}
+					)
                 }
              });
 
@@ -56,7 +62,6 @@ const LoginModal = (props) => {
 
             <Modal.Body>
 
-				
 					<Form.Group>
 						<Row>
 							<Col md={4} className="py-2">
@@ -101,10 +106,8 @@ const LoginModal = (props) => {
     						</Col>
 						</Row>
   					</Form.Group>	
-				
-				
-            </Modal.Body>
 
+            </Modal.Body>
         </Modal>
     )
 }

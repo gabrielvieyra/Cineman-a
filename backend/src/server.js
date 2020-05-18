@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 const peliculasRoutes = require('./routes/peliculas_routes')
 const sessionRoutes   = require('./routes/session_routes');
 const proximamenteRoutes = require('./routes/proximamente_routes')
+const favoritosRoutes = require('./routes/favoritos_routes')
 
 const app = express();
 
@@ -42,5 +43,6 @@ app.use( session({
 app.use('/auth', sessionRoutes);
 app.use('/peliculas', peliculasRoutes);
 app.use('/proximamente', proximamenteRoutes);
+app.use('/favoritos', favoritosRoutes);
 
 app.listen(8888, ()=>{console.log('Escuchando...')} );
