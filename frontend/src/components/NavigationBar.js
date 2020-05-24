@@ -33,6 +33,16 @@ const NavigationBar = (props) => {
       setRegistrateModal(true);
   }
 
+  const [terminoBuscado, setTerminoBuscado] = useState('');
+
+  const handleTerminoBuscadoChange = (event)=>{
+
+        let busqueda = event.target.value;
+        setTerminoBuscado(busqueda);
+
+        props.onSearchPubs(busqueda);
+  }
+
   return (
     <>
     <Navbar className="bg-light mb-2" expand="xl">
@@ -55,7 +65,16 @@ const NavigationBar = (props) => {
         </Nav>
 
         <Form className="pl-2 search-media" inline>
-          <FormControl className="py-0 pl-2 pr-0 search" type="text" method="post" max-length="30" autocomplete="off" placeholder="Peliculas, Cines y más..." />
+          <FormControl className="py-0 pl-2 pr-0 search" 
+                       type="text" 
+                       method="post" 
+                       max-length="30" 
+                       autocomplete="off" 
+                       placeholder="Peliculas, Cines y más..."
+                       value={terminoBuscado} 
+                       onChange={handleTerminoBuscadoChange}
+          
+          />
           <Button className="btn-search ml-2" variant="none">
             <i className="fas fa-search"></i>
           </Button>
@@ -94,7 +113,10 @@ const NavigationBar = (props) => {
     
     />
 
-    <RegistrateModal show={showRegistrateModal} handleHide={handleHideRegistrateModal}/>
+    <RegistrateModal show={showRegistrateModal} 
+                     handleHide={handleHideRegistrateModal}
+    
+    />
     
     </>
   )

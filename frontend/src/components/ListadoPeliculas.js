@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
+import Swal from 'sweetalert2';
 import Row from 'react-bootstrap/Row';
 import Peliculas from './Peliculas';
-import Swal from 'sweetalert2';
 
 const ListadoPeliculas = (props) => {
 
@@ -39,7 +39,11 @@ const ListadoPeliculas = (props) => {
     const cargarListadoPeliculas = ()=>{
 
         let endpoint = 'peliculas';
-
+        
+        if ( props.user && props.type === 'favoritos' ){
+            endpoint = 'favoritos/' + props.user.id;
+        }
+    
         fetch( `http://localhost:8888/${endpoint}`).then(
                 response => response.json()
             ).then(

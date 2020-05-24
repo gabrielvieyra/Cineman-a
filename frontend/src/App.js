@@ -21,6 +21,7 @@ import AccordionCandyBottom from './components/AccordionCandyBottom';
 function App() {
 
   const [usuario, setUsuario] = useState(null);
+  const [searchPub, setSearchPub] = useState(null);
 
   const onLoginSuccess = (loggedUser) =>{
     setUsuario(loggedUser);
@@ -42,13 +43,24 @@ function App() {
 
   }
 
+  const handleSearchPubs = (terminoBuscado)=>{
+
+    if (terminoBuscado === ''){
+      terminoBuscado = null;
+    }
+
+    setSearchPub(terminoBuscado);
+    
+  }
+
   return (
     <Router>
       <Container>
         <NavigationBar user={usuario}
                        handleLoginSuccess = {onLoginSuccess}
                        handleLogout = {onLogout}
-        
+                       onSearchPubs={handleSearchPubs}
+
         />
 
         <Switch>

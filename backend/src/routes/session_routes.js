@@ -55,6 +55,36 @@ router.post('/', (req, res) =>{
 
 })
 
+router.post('/', (req, res) =>{
+    let sqlInsert = `INSERT INTO usuarios(usu_nick, usu_nombre, usu_contraseña, usu_email, usu_id)
+                        VALUES(
+                            '${req.body.registrateUsuario}',
+                            '${req.body.registrateNombreCompleto}',
+                            '${req.body.registrateContraseña}',
+                            '${req.body.registrateEmail}',
+                            '${req.session.userId}'
+                        )`;
+
+    conexion.query( sqlInsert, function(err, result, fields) {
+        if( err ) {
+            res.json(
+                {
+                    status: 'error',
+                    message : 'Error al registrarse'
+                }
+            ) 
+        }else{
+            res.json(
+                {
+                    status: 'ok',
+                    message : 'Tu registro fue exitoso'   
+                }
+            )
+        }   
+    })
+
+})
+
 router.delete('/', (req, res) => {
     req.session.destroy( err =>{
         if ( err ){
@@ -65,6 +95,7 @@ router.delete('/', (req, res) => {
                 }
             )
         }else{
+            //res.clearCookie(options.name);
             res.clearCookie('cinemania');
             res.json(
                 {
