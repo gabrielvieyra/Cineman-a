@@ -7,6 +7,8 @@ const ListadoPeliculas = (props) => {
 
     const [ peliculas, setPeliculas ] =useState([])
 
+    const [favoritos, setFavoritos] = useState([]);
+
     const handleChangeFavStatus = (isFav, pelId, userId)=>{
 
         let url = 'http://localhost:8888/favoritos';
@@ -39,21 +41,59 @@ const ListadoPeliculas = (props) => {
     const cargarListadoPeliculas = ()=>{
 
         let endpoint = 'peliculas';
-        
-        if ( props.user && props.type === 'favoritos' ){
-            endpoint = 'favoritos/' + props.user.id;
+
+        if ( props.type ==='peliculas' && props.searchPub ){
+            endpoint += '/search/' + props.searchPub;
         }
-    
-        fetch( `http://localhost:8888/${endpoint}`).then(
+        else{
+            if (props.user ){
+
+                switch (props.type){
+
+                    case 'favoritos':
+
+                        endpoint = 'favoritos/' + props.user.id;
+                        break;
+
+                }
+            }
+        }
+
+        if ( props.user ){
+            //Obtengo los favoritos
+
+            fetch(`http://localhost:8888/favoritos/${props.user.id}`).then(
+                response => response.json()
+            ).then(
+                data =>{
+                    setFavoritos(data);
+
+                    fetch( `http://localhost:8888/${endpoint}`).then(
+                        response => response.json()
+                    ).then(
+                        data => {
+                            setPeliculas( data );
+                        }
+                    )
+                }
+            )
+        }else{
+            fetch( `http://localhost:8888/${endpoint}`).then(
                 response => response.json()
             ).then(
                 data => {
                     setPeliculas( data );
                 }
             )
+        }
+
     }
 
-    useEffect( cargarListadoPeliculas, [props.user] );
+    useEffect( cargarListadoPeliculas, [props.user, props.searchPub] );
+
+    const isUserFav = idPel =>{
+        return ( favoritos.filter( favorito => idPel === favorito.pel_id ).length );
+    }
 
     return(
         <article>
@@ -67,8 +107,8 @@ const ListadoPeliculas = (props) => {
                                                        puntuación={pelicula.pel_puntuacion}
                                                        id={pelicula.pel_id}
                                                        type={props.type}
-                                                       isFav={false}
                                                        user={props.user}
+                                                       isFav={ isUserFav(pelicula.pel_id) }
                                                        onChangeFavStatus={handleChangeFavStatus}
                                                        
                 />

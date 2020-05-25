@@ -24,7 +24,7 @@ const Peliculas = (props) => {
                 <div className="d-flex justify-content-between">
                     <span>{props.puntuación}</span>
 
-                    { props.type === 'peliculas' && props.user &&
+                    { ( props.type === 'peliculas' || props.type === 'favoritos' ) && props.user &&
                         <div className="d-flex align-items-center">
                             <img style={ {cursor: "pointer"} } 
                                  src={props.isFav ? iconoFavorito : iconoNoFavorito}

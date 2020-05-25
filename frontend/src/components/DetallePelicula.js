@@ -70,10 +70,12 @@ const DetallePelicula = () => {
                         <select custom>
                             <option>Seleccione</option>
                             <option>Caballito</option>
+                            <option>Puerto Madero</option>
+                            <option>Palermo</option>
                         </select>
                     </div>
                 </Col>
-                
+                       
                 <Col lg={5} className="px-3 pb-2 d-flex flex-row">
                   <div className="p-2 reserva">Salas</div>
 

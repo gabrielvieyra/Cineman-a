@@ -72,6 +72,7 @@ function App() {
     
                                         <ListadoPeliculas type="peliculas"
                                                           user={usuario}
+                                                          searchPub={searchPub}
 
                                         />
 
@@ -150,12 +151,11 @@ function App() {
           { usuario &&
             <Route exact path="/favoritos" children={
                                         <>
-                                          <Titulo titulo="Compras" />
-
                                           <Titulo titulo="Peliculas favoritas" />
 
                                           <ListadoPeliculas user={usuario}
                                                             type="favoritos"
+                                                            searchPub={searchPub}
                                         
                                           />
 

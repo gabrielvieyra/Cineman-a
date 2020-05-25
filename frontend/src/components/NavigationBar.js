@@ -8,10 +8,12 @@ import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 import logo from '../logo.svg';
 import LoginModal from './LoginModal';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import RegistrateModal from './RegistrateModal';
 
 const NavigationBar = (props) => {
+
+  const history = useHistory();
 
   const [showLoginModal, setLoginModal] = useState(false);
 
@@ -36,6 +38,8 @@ const NavigationBar = (props) => {
   const [terminoBuscado, setTerminoBuscado] = useState('');
 
   const handleTerminoBuscadoChange = (event)=>{
+
+        history.push("/")
 
         let busqueda = event.target.value;
         setTerminoBuscado(busqueda);
@@ -70,7 +74,7 @@ const NavigationBar = (props) => {
                        method="post" 
                        max-length="30" 
                        autocomplete="off" 
-                       placeholder="Peliculas, Cines y más..."
+                       placeholder="Peliculas, Noticias y más..."
                        value={terminoBuscado} 
                        onChange={handleTerminoBuscadoChange}
           
