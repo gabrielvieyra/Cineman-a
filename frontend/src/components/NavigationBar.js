@@ -100,7 +100,9 @@ const NavigationBar = (props) => {
                   <Link to={"/favoritos"} className="nav-header nav-link">Favoritos</Link>
                 
                   <NavDropdown alignRight title={props.user.nombre}>
-                    <NavDropdown.Item className="nav-header">Mi cuenta</NavDropdown.Item>
+                    <NavDropdown.Item className="nav-header" onClick={ ()=>{history.push('/micuenta')} }>
+                      Mi cuenta
+                    </NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item className="nav-header" onClick={props.handleLogout}>Cerrar sesión</NavDropdown.Item>
                   </NavDropdown> 

@@ -1,53 +1,70 @@
 import React, {useState} from 'react';
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
+import {Modal, Button, Form} from 'react-bootstrap';
 import './styles/LoginModal.css';
-import Form from 'react-bootstrap/Form';
+import Swal from 'sweetalert2';
 
 const RegistrateModal = (props) => {
 
-	const [registrateNombreCompleto, setRegistrateNombreCompleto] = useState('');
-	const [registrateUsuario, setRegistrateUsuario] = useState('');
-	const [registrateEmail, setRegistrateEmail] = useState('');
-	const [registrateContraseña, setRegistrateContraseña] = useState('');
+	const handleRegistroClick = ()=>{
+			
+			let url = 'http://localhost:8888/auth/registro';
 
-	const handleRegistrateNombreCompletoChange = event => {
-		setRegistrateNombreCompleto( event.target.value );
+            let params = {
+							nombre:   nombreCompleto,
+							user:     nombreUsuario,
+							email:    email,
+                            password: password
+                         };
+
+            fetch(url, {
+                            method : 'POST',
+                            credentials : 'include',
+                            body: JSON.stringify( params ),
+                            headers: {
+                                        'Content-Type' : 'application/json'
+                                     }
+                       }
+            ).then( response => response.json() )
+             .then( data => {
+                if ( data.status === 'ok' ){
+					props.handleHide();
+					Swal.fire(
+                        {
+                           text: data.message,
+                           icon: 'success' 
+                        }
+                    )       
+                }else{
+					Swal.fire(
+						{
+							text: data.message,
+							icon: 'error'
+						}
+					)
+                }
+             });
+
 	}
 
-	const handleRegistrateUsuarioChange = event => { 
-		setRegistrateUsuario( event.target.value );
+	const [nombreCompleto, setNombreCompleto] = useState('');
+	const [nombreUsuario, setNombreUsuario] = useState('');
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+
+	const handleNombreCompletoChange = event => {
+		setNombreCompleto( event.target.value );
 	}
 
-	const handleRegistrateEmailChange = event => {
-		setRegistrateEmail( event.target.value );
+	const handleNombreUsuarioChange = event => { 
+		setNombreUsuario( event.target.value );
 	}
 
-	const handleRegistrateContraseñaChange = event => {
-		setRegistrateContraseña( event.target.value );
+	const handleEmailChange = event => {
+		setEmail( event.target.value );
 	}
 
-	const handleSave = ()=>{
-
-		const formData = new FormData();
-
-		formData.append('registrateNombreCompleto', registrateNombreCompleto);
-		formData.append('registrateUsuario', registrateUsuario);
-		formData.append('registrateEmail', registrateEmail);
-		formData.append('registrateContraseña', registrateContraseña);
-
-		fetch('http://localhost:8888/auth', {
-			method: 'POST',
-            body: formData,
-            credentials : 'include'
-		})
-		.then( response => response.json() )
-        .then( data => {
-			console.log(data);
-		})
-		.catch( error => {
-			console.log('Error');
-		})
+	const handlePasswordChange = event => {
+		setPassword( event.target.value );
 	}
 
     return (
@@ -61,8 +78,8 @@ const RegistrateModal = (props) => {
 					<Form.Label>Nombre y apellido</Form.Label>
 					<Form.Control type="text" 
 					              required="required"
-								  value={registrateNombreCompleto}
-								  onChange={handleRegistrateNombreCompletoChange}
+								  value={nombreCompleto}
+								  onChange={handleNombreCompletoChange}
 
 					/>
 
@@ -72,8 +89,8 @@ const RegistrateModal = (props) => {
 					<Form.Label>Nombre de usuario</Form.Label>
 					<Form.Control type="text" 
 					              required="required"
-					              value={registrateUsuario}
-								  onChange={handleRegistrateUsuarioChange}
+					              value={nombreUsuario}
+								  onChange={handleNombreUsuarioChange}
 					
 					/>
 				</Form.Group>
@@ -82,27 +99,26 @@ const RegistrateModal = (props) => {
 					<Form.Label>Email</Form.Label>
 					<Form.Control type="email" 
 					              required="required"
-					              value={registrateEmail}
-								  onChange={handleRegistrateEmailChange}
+					              value={email}
+								  onChange={handleEmailChange}
 					
 					/>
 				</Form.Group>
 
-			<Form.Group>
-				<Form.Label>Contraseña</Form.Label>
-				<Form.Control type="password" 
-				              required="required"
-				              value={registrateContraseña}
-						      onChange={handleRegistrateContraseñaChange}
+				<Form.Group>
+					<Form.Label>Contraseña</Form.Label>
+					<Form.Control type="password" 
+				              	required="required"
+				              	value={password}
+						      	onChange={handlePasswordChange}
 				
-				/>
-			</Form.Group>
+					/>
+				</Form.Group>
 
 				<Form.Group>
-					<Button variant="none" className="btn-search" onClick={handleSave} >Registrarme</Button>
+					<Button variant="none" className="btn-search" onClick={handleRegistroClick} >Registrarme</Button>
 				</Form.Group>
             </Modal.Body>
-
         </Modal>
     )
 }

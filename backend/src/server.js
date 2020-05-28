@@ -9,7 +9,6 @@ const fileUpload = require('express-fileupload');
 
 const peliculasRoutes = require('./routes/peliculas_routes')
 const sessionRoutes   = require('./routes/session_routes');
-const registrarseRoutes   = require('./routes/registrarse_routes');
 const proximamenteRoutes = require('./routes/proximamente_routes')
 const favoritosRoutes = require('./routes/favoritos_routes')
 
@@ -44,7 +43,6 @@ app.use( session({
 }))
 
 app.use('/auth', sessionRoutes);
-app.use('/auth', registrarseRoutes);
 app.use('/peliculas', peliculasRoutes);
 app.use('/proximamente', proximamenteRoutes);
 app.use('/favoritos', favoritosRoutes);

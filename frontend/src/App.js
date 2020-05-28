@@ -149,6 +149,7 @@ function App() {
           />
 
           { usuario &&
+            <>
             <Route exact path="/favoritos" children={
                                         <>
                                           <Titulo titulo="Peliculas favoritas" />
@@ -165,6 +166,13 @@ function App() {
                                       }
             />
 
+            <Route exact path="/micuenta" children={
+
+                                        <Titulo titulo="Compras" />
+                                      
+                                    }
+            />
+            </>
           }
 
           <Redirect to={ { pathname: '/'} } />

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import Swal from 'sweetalert2';
 import Row from 'react-bootstrap/Row';
 import Peliculas from './Peliculas';
+import Swal from 'sweetalert2';
 
 const ListadoPeliculas = (props) => {
 

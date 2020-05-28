@@ -55,36 +55,6 @@ router.post('/', (req, res) =>{
 
 })
 
-router.post('/', (req, res) =>{
-    let sqlInsert = `INSERT INTO usuarios(usu_nick, usu_nombre, usu_contraseña, usu_email, usu_id)
-                        VALUES(
-                            '${req.body.registrateUsuario}',
-                            '${req.body.registrateNombreCompleto}',
-                            '${req.body.registrateContraseña}',
-                            '${req.body.registrateEmail}',
-                            '${req.session.userId}'
-                        )`;
-
-    conexion.query( sqlInsert, function(err, result, fields) {
-        if( err ) {
-            res.json(
-                {
-                    status: 'error',
-                    message : 'Error al registrarse'
-                }
-            ) 
-        }else{
-            res.json(
-                {
-                    status: 'ok',
-                    message : 'Tu registro fue exitoso'   
-                }
-            )
-        }   
-    })
-
-})
-
 router.delete('/', (req, res) => {
     req.session.destroy( err =>{
         if ( err ){
@@ -106,5 +76,38 @@ router.delete('/', (req, res) => {
         }
     })
 })
+
+router.post("/registro", (req, res) => {
+
+    console.log(req.query);
+
+    let consulta = `INSERT INTO usuarios(usu_nick, usu_nombre, usu_contraseña, usu_email) 
+                    VALUES( 
+                            "${req.body.user}", 
+                            "${req.body.nombre}",
+                            "${req.body.password}",
+                            "${req.body.email}"
+                          )`;
+
+    conexion.query(consulta,
+            function(err, result, fields){
+                if ( err ){
+                    res.json(
+                        {
+                            status  : 'error',
+                            message : 'Error al registrarse'
+                        }
+                    )
+                }else{
+                    res.json(
+                        {
+                            status  : 'ok',
+                            message : 'Usuario registrado con exito!'
+                        }
+                    )
+                }
+            }
+        );
+} );
 
 module.exports = router;
