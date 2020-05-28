@@ -1,4 +1,4 @@
-# Cinemanía
+<h1>Cinemanía</h1>
 
 Este proyecto es un sitio web cinéfilo que te permite estar al tanto de las películas que están en cartelera y próximas a estrenarse, poder reservar entradas de cine , estar al tanto de las últimas noticias tanto de cine como de series, información acerca de cada cine y cuenta también con comidas y bebidas.
 
@@ -6,7 +6,7 @@ El stack que maneje para generar este proyecto fue:
 HTML5, CSS3, Javascript, React, React-Bootstrap, Node, Express y MySQL.
 
 
-# Sobre el proyecto
+<h2>Sobre el proyecto</h2>
 
 - En la home del sitio el listado de estrenos, próximos estrenos y noticias destacadas, son listados de películas, notas que las trae desde la base de datos
 - Al hacer click en la imagen de una película se muestra más información de la misma en otra pantalla ej, trailer, sinopsis, datos técnicos, reserva, esta información las trae desde la base de datos
@@ -22,8 +22,7 @@ Contraseña: maria
 - Una vez que inicias sesion te aparecen iconos de corazones donde al hacer click en estos corazones podrás agregar peliculas y notas a tu lista de favoritos, también vas a poder eliminarlas de tu lista de favoritos
 - En mi cuenta aparecerán las compras que hiciste
 
-
-# Lo que queda por hacer
+<h2>Lo que queda por hacer</h2>
 
 - Poder reservar peliculas, asientos y sistema de pago
 - Esa compra aparezca en la cuenta de cada usuario
