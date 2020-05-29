@@ -78,7 +78,11 @@ function App() {
 
                                         <Titulo titulo="Próximos estrenos" />
 
-                                        <ProximosEstrenos />
+                                        <ProximosEstrenos type="proximamente"
+                                                          user={usuario}
+                                                          searchPub={searchPub}
+                                        
+                                        />
 
                                         <Titulo titulo="Noticias destacadas" />
 
@@ -158,6 +162,12 @@ function App() {
                                                             type="favoritos"
                                                             searchPub={searchPub}
                                         
+                                          />
+
+                                          <ProximosEstrenos user={usuario}
+                                                            type="favoritos"
+                                                            searchPub={searchPub}
+
                                           />
 
                                           <Titulo titulo="Noticias favoritas" />

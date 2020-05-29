@@ -5,7 +5,6 @@ Este proyecto es un sitio web cinéfilo que te permite estar al tanto de las pel
 El stack que maneje para generar este proyecto fue: 
 HTML5, CSS3, Javascript, React, React-Bootstrap, Node, Express y MySQL.
 
-
 <h2>Sobre el proyecto</h2>
 
 - En la home del sitio el listado de estrenos, próximos estrenos y noticias destacadas, son listados de películas, notas que las trae desde la base de datos
