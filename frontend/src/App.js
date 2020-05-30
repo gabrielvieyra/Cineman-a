@@ -9,7 +9,6 @@ import DetallePelicula from './components/DetallePelicula';
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import ProximosEstrenos from './components/ProximosEstrenos';
 import DetalleProximamente from './components/DetalleProximamente';
-import NoticiasDestacadas from './components/NoticiasDestacadas';
 import Footer from './components/Footer';
 import NoticiasCine from './components/NoticiasCine';
 import NoticiasSeries from './components/NoticiasSeries';
@@ -84,9 +83,13 @@ function App() {
                                         
                                         />
 
-                                        <Titulo titulo="Noticias destacadas" />
+                                        <Titulo titulo="Noticias de cine" />
 
-                                        <NoticiasDestacadas />
+                                        <NoticiasCine />
+
+                                        <Titulo titulo="Noticias de series" />
+
+                                        <NoticiasSeries />
                                       </>
                                     }
           />
@@ -121,19 +124,6 @@ function App() {
                                         <AccordionCandyBottom categoria="Bebidas"
               
                                         />
-                                      </>
-                                    }
-          />
-
-          <Route exact path="/noticias" children={
-                                      <>
-                                        <Titulo titulo="Noticias de cine" />
-
-                                        <NoticiasCine />
-
-                                        <Titulo titulo="Noticias de series" />
-
-                                        <NoticiasSeries />
                                       </>
                                     }
           />

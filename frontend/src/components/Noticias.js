@@ -1,6 +1,5 @@
 import React from 'react';
-import Col from 'react-bootstrap/Col';
-import Card from 'react-bootstrap/Card';
+import {Col, Card} from 'react-bootstrap';
 
 const Noticias = (props) => {
 
@@ -16,7 +15,7 @@ const Noticias = (props) => {
                 <hr className="my-2"></hr>
 
                 <div className="d-flex justify-content-between">
-                    <span>{props.fecha}</span>
+                    <span>{props.publicacion}</span>
                     <a className="text-dark" href="#">
                         <i class="fas font-weight-normal py-1 fa-heart"></i>
                     </a>

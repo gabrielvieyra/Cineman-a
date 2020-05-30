@@ -64,8 +64,6 @@ const NavigationBar = (props) => {
           
           <Link to={"/candy"} className="nav-header nav-link">Candy</Link>
           
-          <Link to={"/noticias"} className="nav-header nav-link">Noticias</Link>
-          
         </Nav>
 
         <Form className="pl-2 search-media" inline>

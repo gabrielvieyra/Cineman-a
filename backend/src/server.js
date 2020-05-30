@@ -12,6 +12,7 @@ const sessionRoutes   = require('./routes/session_routes');
 const proximamenteRoutes = require('./routes/proximamente_routes')
 const favoritosRoutes = require('./routes/favoritos_routes')
 const favoritosProximamenteRoutes = require('./routes/favproximamente_routes')
+const noticiasRoutes = require('./routes/noticias_routes')
 
 const app = express();
 
@@ -48,5 +49,6 @@ app.use('/peliculas', peliculasRoutes);
 app.use('/proximamente', proximamenteRoutes);
 app.use('/favoritos', favoritosRoutes);
 app.use('/favproximamente', favoritosProximamenteRoutes);
+app.use('/noticias', noticiasRoutes);
 
 app.listen(8888, ()=>{console.log('Escuchando...')} );
