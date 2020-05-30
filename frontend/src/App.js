@@ -85,11 +85,17 @@ function App() {
 
                                         <Titulo titulo="Noticias de cine" />
 
-                                        <NoticiasCine />
+                                        <NoticiasCine type="noticias"
+                                                      user={usuario}
+                                                      searchPub={searchPub}
+                                        />
 
                                         <Titulo titulo="Noticias de series" />
 
-                                        <NoticiasSeries />
+                                        <NoticiasSeries type="noticias"
+                                                        user={usuario}
+                                                        searchPub={searchPub}
+                                        />
                                       </>
                                     }
           />
@@ -151,16 +157,24 @@ function App() {
                                           <ListadoPeliculas user={usuario}
                                                             type="favoritos"
                                                             searchPub={searchPub}
-                                        
                                           />
 
                                           <ProximosEstrenos user={usuario}
                                                             type="favoritos"
                                                             searchPub={searchPub}
-
                                           />
 
                                           <Titulo titulo="Noticias favoritas" />
+
+                                          <NoticiasCine user={usuario}
+                                                        type="favoritos"
+                                                        searchPub={searchPub}
+                                          />
+
+                                          <NoticiasSeries user={usuario}
+                                                          type="favoritos"
+                                                          searchPub={searchPub} 
+                                          />
 
                                         </>
                                       }

@@ -1,7 +1,14 @@
 import React from 'react';
 import {Col, Card} from 'react-bootstrap';
+import iconoNoFavorito from '../no_favorito.png';
+import iconoFavorito from '../favorito.png';
 
 const Noticias = (props) => {
+
+    const handleFavClick = ()=>{
+        /* cambio el estado de favoritos */
+        props.onChangeFavStatus(props.isFav, props.id, props.user.id);
+    }
 
     return (
         <Col lg={4} className="d-flex align-items-stretch mb-2">
@@ -16,9 +23,16 @@ const Noticias = (props) => {
 
                 <div className="d-flex justify-content-between">
                     <span>{props.publicacion}</span>
-                    <a className="text-dark" href="#">
-                        <i class="fas font-weight-normal py-1 fa-heart"></i>
-                    </a>
+                    
+                    { ( props.type === 'noticias' || props.type === 'favoritos' ) && props.user &&
+                        <div className="d-flex align-items-center">
+                            <img style={ {cursor: "pointer"} } 
+                                 src={props.isFav ? iconoFavorito : iconoNoFavorito}
+                                 onClick={handleFavClick}  
+                            />
+                        </div>
+                    }
+
                 </div>
             </Card.Body>
 
