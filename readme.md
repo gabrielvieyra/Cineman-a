@@ -16,7 +16,9 @@ HTML, CSS, Javascript, React, React-Bootstrap, Node, Express y MySQL.
 - Buscador tipo live, donde vas tipeando y se va mostrando automáticamente los resultados
 - Login in, con validación y los datos los trae de la base de datos, podes iniciar sesión con: 
 
-  Nombre de usuario: maria               Contraseña: maria
+  Nombre de usuario: maria               
+  
+  Contraseña: maria
 
 - En registrate, podes crear tu usuario y los datos se guardaran en la base de datos
 - Tambien podes cerrar sesión haciendo click en cerrar session 
