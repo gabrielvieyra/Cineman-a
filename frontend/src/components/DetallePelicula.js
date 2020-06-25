@@ -62,7 +62,7 @@ const DetallePelicula = () => {
                         <span>{pelicula.cla_clasificación}</span>
                     </div>
                 </Col>
-
+            
                 <Col lg={3} className="px-3 pb-2">
                     <div className="p-2 d-flex flex-row">
                         <label className="my-0 mr-2 reserva">Complejos</label>

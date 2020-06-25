@@ -39,8 +39,10 @@ const LoginModal = (props) => {
 						}
 					)
                 }
-             });
-
+			 });
+			 
+			setNombreUsuario('');
+			setPassword('');
 	}
 
 	const [nombreUsuario, setNombreUsuario] = useState('');

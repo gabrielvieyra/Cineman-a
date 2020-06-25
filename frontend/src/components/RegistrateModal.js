@@ -42,8 +42,12 @@ const RegistrateModal = (props) => {
 						}
 					)
                 }
-             });
-
+			 });
+			 
+			setNombreCompleto('');
+			setNombreUsuario('');
+			setEmail('');
+			setPassword('');
 	}
 
 	const [nombreCompleto, setNombreCompleto] = useState('');

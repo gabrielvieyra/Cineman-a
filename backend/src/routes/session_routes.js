@@ -108,6 +108,6 @@ router.post("/registro", (req, res) => {
                 }
             }
         );
-} );
+})
 
 module.exports = router;
