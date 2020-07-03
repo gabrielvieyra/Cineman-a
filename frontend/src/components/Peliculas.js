@@ -18,7 +18,7 @@ const Peliculas = (props) => {
                     <img className="card-img-top" src={props.imagen}></img>
                 </Link>
             <Card.Body className="card-block bg-light p-2">
-                <h5 className="card-title mb-0">{props.nombre}</h5>
+                <h5 style={ { fontWeight : "bold" } } className="card-title mb-0">{props.nombre}</h5>
 
                 <hr className="my-1"></hr>
                 <div className="d-flex justify-content-between">

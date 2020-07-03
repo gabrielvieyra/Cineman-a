@@ -15,7 +15,7 @@ const Noticias = (props) => {
             <Card>
                 <img className="card-img-top" src={props.imagen}></img>
             <Card.Body className="card-block bg-light p-2">
-                <Card.Title className="mb-2">{props.titulo}</Card.Title>
+                <Card.Title style={ { fontWeight : "bold" } } className="mb-2">{props.titulo}</Card.Title>
 
                 <Card.Text className="mb-0">{props.texto}</Card.Text>
 

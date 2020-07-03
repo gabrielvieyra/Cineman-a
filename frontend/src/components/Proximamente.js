@@ -18,7 +18,7 @@ const Proximamente = (props) => {
                     <img className="card-img-top" src={props.imagen}></img>
                 </Link>
             <Card.Body className="card-block bg-light p-2">
-                <Card.Title className="mb-0">{props.nombre}</Card.Title>
+                <Card.Title style={ { fontWeight : "bold" } } className="mb-0">{props.nombre}</Card.Title>
 
                 <hr className="my-1"></hr>
                 <div className="d-flex justify-content-between">
