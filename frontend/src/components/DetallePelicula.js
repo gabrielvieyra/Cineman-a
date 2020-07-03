@@ -67,8 +67,8 @@ const DetallePelicula = () => {
                     <div className="p-2 d-flex flex-row">
                         <label className="my-0 mr-2 reserva">Complejos</label>
 
-                        <select custom>
-                            <option>Seleccione</option>
+                        <select className="complejos" custom>
+                            <option className="complejos">Seleccione</option>
                             <option>Caballito</option>
                             <option>Puerto Madero</option>
                             <option>Palermo</option>
@@ -102,7 +102,7 @@ const DetallePelicula = () => {
                 <Col lg={4} className="px-3 pb-2 d-flex flex-row">
                   <div className="p-2">
                     <label className="my-0 mr-2 reserva">Fecha</label>
-                    <input type="date"></input>
+                    <input className="complejos" type="date"></input>
                   </div>
                 </Col>
 

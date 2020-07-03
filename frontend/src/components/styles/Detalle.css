@@ -16,6 +16,10 @@
     height: 38px;
 }
 
+.complejos {
+    outline: 0;
+}
+
 /* Altura videos */
 @media (max-width: 991px) {
 
