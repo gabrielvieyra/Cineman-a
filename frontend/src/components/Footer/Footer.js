@@ -1,12 +1,11 @@
-import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import logo from '../logo.svg';
-import './styles/Footer.css';
+import React from "react";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import logo from "../../logo.svg";
+import "./Footer.css";
 
 const Footer = () => {
-
     return (
         <Container>
             <Row className="bg-light px-3 py-2 d-flex align-items-center">
@@ -15,7 +14,7 @@ const Footer = () => {
                 </Col>
 
                 <Col md={4} className="d-flex justify-content-center">
-                    <img className="logo-footer" src={logo}></img>
+                    <img className="logo-footer" src={logo} alt=""></img>
                 </Col>
 
                 <Col md={4} className="d-flex justify-content-end pr-0 icon">
@@ -34,9 +33,7 @@ const Footer = () => {
                 </Col>
             </Row>
         </Container>
-    )
-}
+    );
+};
 
 export default Footer;
-
-
