@@ -2,21 +2,21 @@ import React, { useState } from "react";
 import "./App.css";
 import Container from "react-bootstrap/Container";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
-import Titulo from "./components/Titulo";
-import ListadoPeliculas from "./components/ListadoPeliculas";
-import Slider from "./components/Slider";
-import DetallePelicula from "./components/DetallePelicula";
+import Titulo from "./components/Titulo/Titulo";
+import ListadoPeliculas from "./components/ListadoPeliculas/ListadoPeliculas";
+import Slider from "./components/Slider/Slider";
+import DetallePelicula from "./components/DetallePelicula/DetallePelicula";
 import {
     BrowserRouter as Router,
     Switch,
     Route,
     Redirect
 } from "react-router-dom";
-import ProximosEstrenos from "./components/ProximosEstrenos";
-import DetalleProximamente from "./components/DetalleProximamente";
+import ProximosEstrenos from "./components/ProximosEstrenos/ProximosEstrenos";
+import DetalleProximamente from "./components/DetalleProximamente/DetalleProximamente";
 import Footer from "./components/Footer/Footer";
-import NoticiasCine from "./components/NoticiasCine";
-import NoticiasSeries from "./components/NoticiasSeries";
+import NoticiasCine from "./components/NoticiasCine/NoticiasCine";
+import NoticiasSeries from "./components/NoticiasSeries/NoticiasSeries";
 import AccordionCine from "./components/AccordionCine/AccordionCine";
 import AccordionCineBottom from "./components/AccordionCineBottom/AccordionCineBottom";
 import AccordionCandy from "./components/AccordionCandy/AccordionCandy";
