@@ -1,8 +1,8 @@
 import React from "react";
 import { Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import iconoNoFavorito from "../../no_favorito.png";
-import iconoFavorito from "../../favorito.png";
+import iconoNoFavorito from "../../assets/no_favorito.png";
+import iconoFavorito from "../../assets/favorito.png";
 
 const Proximamente = (props) => {
     const handleFavClick = () => {

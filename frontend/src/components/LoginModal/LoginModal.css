@@ -12,3 +12,7 @@
     background-color: #e6e2e1;
     height: 38px;
 }
+
+.close:not(:disabled):not(.disabled):focus {
+    outline: none;
+}

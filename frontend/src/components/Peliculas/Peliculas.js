@@ -2,8 +2,8 @@ import React from "react";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
-import iconoNoFavorito from "../../no_favorito.png";
-import iconoFavorito from "../../favorito.png";
+import iconoNoFavorito from "../../assets/no_favorito.png";
+import iconoFavorito from "../../assets/favorito.png";
 
 const Peliculas = (props) => {
     const handleFavClick = () => {

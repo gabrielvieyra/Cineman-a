@@ -1,7 +1,10 @@
 .logo {
-    width: 100%;
-    max-width: 222px;
- }
+    width: 230px;
+}
+
+.isotipo {
+    width: 30%;
+}
 
 .nav-header {
     color: #000092 !important;
@@ -21,23 +24,9 @@
     color: #000092;
     background-color: #e6e2e1;
     height: 38px;
+    outline-color: transparent !important;
 }
 
-.btn-margin {
-    margin-right: 13px;
-}
-
-@media (max-width: 1199px) {
-    
-	.btn-margin{
-        margin: 10px 0px;
-		
-    }
-
-    .search-media{
-        padding: 0 !important;
-		
-    }
-    
-
+button:focus {
+    outline: 5px auto rgba(0, 0, 0, 0.1);
 }
