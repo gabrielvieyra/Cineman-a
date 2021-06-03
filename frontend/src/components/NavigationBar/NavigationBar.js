@@ -56,10 +56,14 @@ const NavigationBar = (props) => {
                 expand="lg"
             >
                 <Link to={"/"} className="py-0 navbar-brand">
-                    <img className="logo d-sm-block d-none" alt="" src={logo} />
+                    <img
+                        className="logo d-sm-block d-none"
+                        alt="imagotipo"
+                        src={logo}
+                    />
                     <img
                         className="isotipo d-sm-none d-block"
-                        alt=""
+                        alt="isotipo"
                         src={isotipo}
                     />
                 </Link>

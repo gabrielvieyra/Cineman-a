@@ -4,6 +4,8 @@ import Peliculas from "../Peliculas/Peliculas";
 import Swal from "sweetalert2";
 
 const ListadoPeliculas = (props) => {
+    const { type, searchPub, user } = props;
+
     const [peliculas, setPeliculas] = useState([]);
 
     const [favoritos, setFavoritos] = useState([]);
@@ -37,22 +39,22 @@ const ListadoPeliculas = (props) => {
     const cargarListadoPeliculas = () => {
         let endpoint = "peliculas";
 
-        if (props.type === "peliculas" && props.searchPub) {
-            endpoint += "/search/" + props.searchPub;
+        if (type === "peliculas" && searchPub) {
+            endpoint += "/search/" + searchPub;
         } else {
-            if (props.user) {
-                switch (props.type) {
+            if (user) {
+                switch (type) {
                     case "favoritos":
-                        endpoint = "favoritos/" + props.user.id;
+                        endpoint = "favoritos/" + user.id;
                         break;
                 }
             }
         }
 
-        if (props.user) {
+        if (user) {
             //Obtengo los favoritos
 
-            fetch(`http://localhost:8888/favoritos/${props.user.id}`)
+            fetch(`http://localhost:8888/favoritos/${user.id}`)
                 .then((response) => response.json())
                 .then((data) => {
                     setFavoritos(data);
@@ -72,31 +74,30 @@ const ListadoPeliculas = (props) => {
         }
     };
 
-    useEffect(cargarListadoPeliculas, [props.user, props.searchPub]);
+    useEffect(cargarListadoPeliculas, [user, searchPub]);
 
     const isUserFav = (idPel) => {
         return favoritos.filter((favorito) => idPel === favorito.pel_id).length;
     };
 
     return (
-        <article>
-            <Row>
-                {peliculas.map((pelicula) => {
-                    return (
-                        <Peliculas
-                            imagen={pelicula.pel_imagen}
-                            nombre={pelicula.pel_titulo}
-                            puntuación={pelicula.pel_puntuacion}
-                            id={pelicula.pel_id}
-                            type={props.type}
-                            user={props.user}
-                            isFav={isUserFav(pelicula.pel_id)}
-                            onChangeFavStatus={handleChangeFavStatus}
-                        />
-                    );
-                })}
-            </Row>
-        </article>
+        <Row>
+            {peliculas.map((pelicula, key) => {
+                return (
+                    <Peliculas
+                        imagen={pelicula.pel_imagen}
+                        titulo={pelicula.pel_titulo}
+                        puntuacion={pelicula.pel_puntuacion}
+                        id={pelicula.pel_id}
+                        type={type}
+                        user={user}
+                        isFav={isUserFav(pelicula.pel_id)}
+                        onChangeFavStatus={handleChangeFavStatus}
+                        key={pelicula.pel_id ? pelicula.pel_id : key}
+                    />
+                );
+            })}
+        </Row>
     );
 };
 
