@@ -1,23 +1,26 @@
 import React from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import { Container, Row, Col } from "react-bootstrap";
 import logo from "../../assets/logo.svg";
 import "./Footer.css";
 
 const Footer = () => {
+    let currentYear = new Date();
+
     return (
         <Container>
-            <Row className="bg-light px-3 py-2 d-flex align-items-center">
-                <Col md={4} className="pl-0 copy ">
-                    <span>&copy; 2020 - Todos los derechos reservados</span>
+            <Row className="bg-light d-flex align-items-center py-2">
+                <Col md={4} className="copy">
+                    <span>
+                        &copy;
+                        {` ${currentYear.getFullYear()} - Todos los derechos reservados`}
+                    </span>
                 </Col>
 
                 <Col md={4} className="d-flex justify-content-center">
                     <img className="logo-footer" src={logo} alt=""></img>
                 </Col>
 
-                <Col md={4} className="d-flex justify-content-end pr-0 icon">
+                <Col md={4} className="d-flex justify-content-end icon">
                     <div className="d-flex align-items-end">
                         <i className="fab fa-facebook-square icon-footer mr-4"></i>
                     </div>
