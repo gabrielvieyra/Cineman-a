@@ -4,8 +4,9 @@ import Proximamente from "../Proximamente/Proximamente";
 import Swal from "sweetalert2";
 
 const ProximosEstrenos = (props) => {
-    const [proximamente, setProximamente] = useState([]);
+    const { type, searchPub, user } = props;
 
+    const [proximamente, setProximamente] = useState([]);
     const [favoritos, setFavoritos] = useState([]);
 
     const handleChangeFavStatus = (isFav, proId, userId) => {
@@ -37,22 +38,22 @@ const ProximosEstrenos = (props) => {
     const cargarListadoProximamente = () => {
         let endpoint = "proximamente";
 
-        if (props.type === "proximamente" && props.searchPub) {
-            endpoint += "/search/" + props.searchPub;
+        if (type === "proximamente" && searchPub) {
+            endpoint += "/search/" + searchPub;
         } else {
-            if (props.user) {
-                switch (props.type) {
+            if (user) {
+                switch (type) {
                     case "favoritos":
-                        endpoint = "favproximamente/" + props.user.id;
+                        endpoint = "favproximamente/" + user.id;
                         break;
                 }
             }
         }
 
-        if (props.user) {
+        if (user) {
             //Obtengo los favoritos
 
-            fetch(`http://localhost:8888/favproximamente/${props.user.id}`)
+            fetch(`http://localhost:8888/favproximamente/${user.id}`)
                 .then((response) => response.json())
                 .then((data) => {
                     setFavoritos(data);
@@ -72,7 +73,7 @@ const ProximosEstrenos = (props) => {
         }
     };
 
-    useEffect(cargarListadoProximamente, [props.user, props.searchPub]);
+    useEffect(cargarListadoProximamente, [user, searchPub]);
 
     const isUserFav = (idPro) => {
         return favoritos.filter((favorito) => idPro === favorito.pro_id).length;
@@ -81,17 +82,20 @@ const ProximosEstrenos = (props) => {
     return (
         <article>
             <Row>
-                {proximamente.map((proximamente) => {
+                {proximamente.map((proximamente, key) => {
                     return (
                         <Proximamente
                             imagen={proximamente.pro_imagen}
                             nombre={proximamente.pro_titulo}
                             fecha={proximamente.pro_fecha}
                             id={proximamente.pro_id}
-                            type={props.type}
+                            type={type}
                             isFav={isUserFav(proximamente.pro_id)}
-                            user={props.user}
+                            user={user}
                             onChangeFavStatus={handleChangeFavStatus}
+                            key={
+                                proximamente.pro_id ? proximamente.pro_id : key
+                            }
                         />
                     );
                 })}

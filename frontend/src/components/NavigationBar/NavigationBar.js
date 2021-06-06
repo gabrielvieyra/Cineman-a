@@ -92,7 +92,7 @@ const NavigationBar = (props) => {
                                     type="text"
                                     method="post"
                                     max-length="30"
-                                    autocomplete="off"
+                                    autoComplete="off"
                                     placeholder="Peliculas, Noticias y más..."
                                     value={terminoBuscado}
                                     onChange={handleTerminoBuscadoChange}
@@ -109,7 +109,7 @@ const NavigationBar = (props) => {
                         </div>
                         <div>
                             {!user ? (
-                                <div classNAme="d-flex">
+                                <div className="d-flex">
                                     <Button
                                         variant="none"
                                         className="btn-search"
