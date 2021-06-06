@@ -6,7 +6,6 @@ import iconoFavorito from "../../assets/favorito.png";
 
 const Proximamente = (props) => {
     const handleFavClick = () => {
-        /*alert('favorito')*/
         props.onChangeFavStatus(props.isFav, props.id, props.user.id);
     };
 

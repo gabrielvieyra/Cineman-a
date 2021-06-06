@@ -3,6 +3,8 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import "../../App.css";
 import detailMovie from "../../data/movie-detail.json";
+import DataMovie from "../DataMovie/DataMovie";
+import TrailerMovie from "../TrailerMovie/TrailerMovie";
 
 const DetallePelicula = () => {
     const { id } = useParams();
@@ -24,42 +26,18 @@ const DetallePelicula = () => {
         pelicula && (
             <Container className="mb-2">
                 <Row className="bg-white">
-                    <Col lg={6} className="p-3 video-heigh">
-                        <iframe
-                            className="w-100 h-100"
-                            src={pelicula.pel_trailer}
-                            frameborder="0"
-                            allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen
-                            title={pelicula.pel_titulo}
-                        ></iframe>
-                    </Col>
-                    <Col lg={6} className="p-3">
-                        <h2 className="title-detalle mb-2 p-2 font-weight-normal">
-                            Sinopsis
-                        </h2>
-                        <p className="p-2 m-0">{pelicula.pel_sinopsis}</p>
+                    <TrailerMovie
+                        trailer={pelicula.pel_trailer}
+                        title={pelicula.pel_titulo}
+                    />
 
-                        <h2 className="title-detalle mb-2 p-2 font-weight-normal">
-                            Datos Técnicos
-                        </h2>
-                        <div className="d-flex justify-content-between px-2">
-                            <span>Origen</span>
-                            <span>{pelicula.ori_pais}</span>
-                        </div>
-                        <div className="d-flex justify-content-between px-2">
-                            <span>Género</span>
-                            <span>{pelicula.gen_genero}</span>
-                        </div>
-                        <div className="d-flex justify-content-between px-2">
-                            <span>Director</span>
-                            <span>{pelicula.pel_director}</span>
-                        </div>
-                        <div className="d-flex justify-content-between px-2">
-                            <span>Clasificación</span>
-                            <span>{pelicula.cla_clasificación}</span>
-                        </div>
-                    </Col>
+                    <DataMovie
+                        synopsis={pelicula.pel_sinopsis}
+                        country={pelicula.ori_pais}
+                        type={pelicula.gen_genero}
+                        director={pelicula.pel_director}
+                        classification={pelicula.cla_clasificación}
+                    />
 
                     <Col lg={3} md={6} className="px-3 pb-sm-2 pb-0">
                         <div className="p-2 d-flex flex-row">

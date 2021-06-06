@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import { Container, Row, Col } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import "../../App.css";
+import DataMovie from "../DataMovie/DataMovie";
+import TrailerMovie from "../TrailerMovie/TrailerMovie";
 
 const DetalleProximamente = (props) => {
     let { id } = useParams();
@@ -15,7 +15,6 @@ const DetalleProximamente = (props) => {
             .then((response) => response.json())
             .then((data) => {
                 setProximamente(data);
-                console.log(data);
             });
     }, []);
 
@@ -23,47 +22,18 @@ const DetalleProximamente = (props) => {
         proximamente && (
             <Container className="mb-2">
                 <Row className="bg-white">
-                    <Col lg={6} className="p-3 video-heigh">
-                        <iframe
-                            className="w-100 h-100"
-                            src={proximamente.pro_trailer}
-                            frameborder="0"
-                            allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen
-                        ></iframe>
-                    </Col>
+                    <TrailerMovie
+                        trailer={proximamente.pro_trailer}
+                        title={proximamente.pro_titulo}
+                    />
 
-                    <Col lg={6} className="p-3">
-                        <h2 className="title-detalle mb-2 p-2 font-weight-normal">
-                            Sinopsis
-                        </h2>
-
-                        <p className="p-2 m-0">{proximamente.pro_sinopsis}</p>
-
-                        <h2 className="title-detalle mb-2 p-2 font-weight-normal">
-                            Datos Técnicos
-                        </h2>
-
-                        <div className="d-flex justify-content-between px-2">
-                            <span>Origen</span>
-                            <span>{proximamente.ori_pais}</span>
-                        </div>
-
-                        <div className="d-flex justify-content-between px-2">
-                            <span>Género</span>
-                            <span>{proximamente.gen_genero}</span>
-                        </div>
-
-                        <div className="d-flex justify-content-between px-2">
-                            <span>Director</span>
-                            <span>{proximamente.pro_director}</span>
-                        </div>
-
-                        <div className="d-flex justify-content-between px-2">
-                            <span>Clasificación</span>
-                            <span>{proximamente.cla_clasificación}</span>
-                        </div>
-                    </Col>
+                    <DataMovie
+                        synopsis={proximamente.pro_sinopsis}
+                        country={proximamente.ori_pais}
+                        type={proximamente.gen_genero}
+                        director={proximamente.pro_director}
+                        classification={proximamente.cla_clasificación}
+                    />
                 </Row>
             </Container>
         )
