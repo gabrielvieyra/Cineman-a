@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
+import { Modal, Button, Form, Col, Row } from "react-bootstrap";
 import "./LoginModal.css";
-import Form from "react-bootstrap/Form";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
 import Swal from "sweetalert2";
 
 const LoginModal = (props) => {
+    const { show, handleLoginSuccess, handleHide } = props;
+
     const handleLoginClick = () => {
         let url = "http://localhost:8888/auth";
 
@@ -27,8 +25,8 @@ const LoginModal = (props) => {
             .then((response) => response.json())
             .then((data) => {
                 if (data.status === "ok") {
-                    props.handleLoginSuccess(data.loggedUser);
-                    props.handleHide();
+                    handleLoginSuccess(data.loggedUser);
+                    handleHide();
                 } else {
                     Swal.fire({
                         text: data.message,
@@ -53,11 +51,7 @@ const LoginModal = (props) => {
     };
 
     return (
-        <Modal
-            className="login-modal"
-            show={props.show}
-            onHide={props.handleHide}
-        >
+        <Modal className="login-modal" show={show} onHide={handleHide}>
             <Modal.Header closeButton>
                 <Modal.Title className="login-title">Ingresar</Modal.Title>
             </Modal.Header>

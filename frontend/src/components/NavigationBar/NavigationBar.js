@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {
     Navbar,
-    Nav,
     NavDropdown,
     Form,
     FormControl,
@@ -15,9 +14,13 @@ import { Link, useHistory } from "react-router-dom";
 import RegistrateModal from "../RegistrateModal/RegistrateModal";
 
 const NavigationBar = (props) => {
+    const { onSearchPubs, user, handleLogout, handleLoginSuccess } = props;
+
     const history = useHistory();
 
     const [showLoginModal, setLoginModal] = useState(false);
+    const [showRegistrateModal, setRegistrateModal] = useState(false);
+    const [terminoBuscado, setTerminoBuscado] = useState("");
 
     const handleHideLoginModal = () => {
         setLoginModal(false);
@@ -27,8 +30,6 @@ const NavigationBar = (props) => {
         setLoginModal(true);
     };
 
-    const [showRegistrateModal, setRegistrateModal] = useState(false);
-
     const handleHideRegistrateModal = () => {
         setRegistrateModal(false);
     };
@@ -37,15 +38,13 @@ const NavigationBar = (props) => {
         setRegistrateModal(true);
     };
 
-    const [terminoBuscado, setTerminoBuscado] = useState("");
-
     const handleTerminoBuscadoChange = (event) => {
         history.push("/");
 
         let busqueda = event.target.value;
         setTerminoBuscado(busqueda);
 
-        props.onSearchPubs(busqueda);
+        onSearchPubs(busqueda);
     };
 
     return (
@@ -109,7 +108,7 @@ const NavigationBar = (props) => {
                             </Form>
                         </div>
                         <div>
-                            {!props.user ? (
+                            {!user ? (
                                 <div classNAme="d-flex">
                                     <Button
                                         variant="none"
@@ -136,10 +135,7 @@ const NavigationBar = (props) => {
                                         Favoritos
                                     </Link>
 
-                                    <NavDropdown
-                                        alignRight
-                                        title={props.user.nombre}
-                                    >
+                                    <NavDropdown alignRight title={user.nombre}>
                                         <NavDropdown.Item
                                             className="nav-header"
                                             onClick={() => {
@@ -151,7 +147,7 @@ const NavigationBar = (props) => {
                                         <NavDropdown.Divider />
                                         <NavDropdown.Item
                                             className="nav-header"
-                                            onClick={props.handleLogout}
+                                            onClick={handleLogout}
                                         >
                                             Cerrar sesión
                                         </NavDropdown.Item>
@@ -166,7 +162,7 @@ const NavigationBar = (props) => {
             <LoginModal
                 show={showLoginModal}
                 handleHide={handleHideLoginModal}
-                handleLoginSuccess={props.handleLoginSuccess}
+                handleLoginSuccess={handleLoginSuccess}
             />
 
             <RegistrateModal

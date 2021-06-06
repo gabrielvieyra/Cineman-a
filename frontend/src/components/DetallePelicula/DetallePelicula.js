@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import Button from "react-bootstrap/Button";
 import "../../App.css";
+import detailMovie from "../../data/movie-detail.json";
 
 const DetallePelicula = () => {
-    let { id } = useParams();
+    const { id } = useParams();
 
-    let [pelicula, setPelicula] = useState(null);
+    const [pelicula, setPelicula] = useState(null);
 
     useEffect(() => {
-        fetch("http://localhost:8888/peliculas/" + id)
-            .then((response) => response.json())
-            .then((data) => {
-                setPelicula(data);
-                console.log(data);
-            });
+        fetchData();
     }, []);
+
+    async function fetchData() {
+        const getData = await fetch("http://localhost:8888/peliculas/" + id);
+        const getJson = await getData.json();
+
+        setPelicula(getJson);
+    }
 
     return (
         pelicula && (
@@ -31,115 +31,126 @@ const DetallePelicula = () => {
                             frameborder="0"
                             allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen
+                            title={pelicula.pel_titulo}
                         ></iframe>
                     </Col>
-
                     <Col lg={6} className="p-3">
                         <h2 className="title-detalle mb-2 p-2 font-weight-normal">
                             Sinopsis
                         </h2>
-
                         <p className="p-2 m-0">{pelicula.pel_sinopsis}</p>
 
                         <h2 className="title-detalle mb-2 p-2 font-weight-normal">
                             Datos Técnicos
                         </h2>
-
                         <div className="d-flex justify-content-between px-2">
                             <span>Origen</span>
                             <span>{pelicula.ori_pais}</span>
                         </div>
-
                         <div className="d-flex justify-content-between px-2">
                             <span>Género</span>
                             <span>{pelicula.gen_genero}</span>
                         </div>
-
                         <div className="d-flex justify-content-between px-2">
                             <span>Director</span>
                             <span>{pelicula.pel_director}</span>
                         </div>
-
                         <div className="d-flex justify-content-between px-2">
                             <span>Clasificación</span>
                             <span>{pelicula.cla_clasificación}</span>
                         </div>
                     </Col>
 
-                    <Col lg={3} className="px-3 pb-2">
+                    <Col lg={3} md={6} className="px-3 pb-sm-2 pb-0">
                         <div className="p-2 d-flex flex-row">
                             <label className="my-0 mr-2 reserva">
                                 Complejos
                             </label>
-
                             <select className="complejos" custom>
-                                <option className="complejos">
-                                    Seleccione
-                                </option>
-                                <option>Caballito</option>
-                                <option>Puerto Madero</option>
-                                <option>Palermo</option>
+                                {detailMovie.complexes.map((complex, key) => {
+                                    return (
+                                        <option key={key}>
+                                            {complex.site}
+                                        </option>
+                                    );
+                                })}
                             </select>
                         </div>
                     </Col>
-
-                    <Col lg={5} className="px-3 pb-2 d-flex flex-row">
+                    <Col
+                        lg={5}
+                        md={6}
+                        className="px-3 pb-2 d-flex flex-sm-row flex-column"
+                    >
                         <div className="p-2 reserva">Salas</div>
-
-                        <Button variant="none" className="btn-search mr-2">
-                            Classic
-                        </Button>
-                        <Button variant="none" className="btn-search mr-2">
-                            GC
-                        </Button>
-                        <Button variant="none" className="btn-search mr-2">
-                            4D
-                        </Button>
-                        <Button variant="none" className="btn-search">
-                            MS
-                        </Button>
+                        <div className="d-flex">
+                            {detailMovie.rooms.map((sala, key) => {
+                                return (
+                                    <Button
+                                        variant="none"
+                                        className="btn-search mr-2"
+                                        key={key}
+                                    >
+                                        {sala.type}
+                                    </Button>
+                                );
+                            })}
+                        </div>
                     </Col>
-
-                    <Col lg={4} className="px-3 pb-2 d-flex flex-row">
+                    <Col
+                        lg={4}
+                        md={6}
+                        className="px-3 pb-2 d-flex flex-sm-row flex-column"
+                    >
                         <div className="p-2 reserva">Idiomas</div>
-
-                        <Button variant="none" className="btn-search mr-2">
-                            Español
-                        </Button>
-                        <Button variant="none" className="btn-search">
-                            Subtitulado
-                        </Button>
+                        <div className="d-flex">
+                            {detailMovie.languages.map((lenguage, key) => {
+                                return (
+                                    <Button
+                                        variant="none"
+                                        className="btn-search mr-2"
+                                        key={key}
+                                    >
+                                        {lenguage.type}
+                                    </Button>
+                                );
+                            })}
+                        </div>
                     </Col>
-
-                    <Col lg={3} className="px-3 pb-2 d-flex flex-row">
+                    <Col lg={3} md={6} className="px-3 pb-2 d-flex flex-row">
                         <div className="p-2 reserva">Formatos</div>
-
-                        <Button variant="none" className="btn-search mr-2">
-                            2D
-                        </Button>
-                        <Button variant="none" className="btn-search">
-                            3D
-                        </Button>
+                        {detailMovie.formats.map((format, key) => {
+                            return (
+                                <Button
+                                    variant="none"
+                                    className="btn-search mr-2"
+                                    key={key}
+                                >
+                                    {format.type}
+                                </Button>
+                            );
+                        })}
                     </Col>
-
-                    <Col lg={4} className="px-3 pb-2 d-flex flex-row">
+                    <Col lg={4} md={6} className="px-3 pb-2 d-flex flex-row">
                         <div className="p-2">
                             <label className="my-0 mr-2 reserva">Fecha</label>
                             <input className="complejos" type="date"></input>
                         </div>
                     </Col>
-
-                    <Col lg={3} className="px-3 pb-2 d-flex flex-row">
+                    <Col lg={3} md={6} className="px-3 pb-2 d-flex flex-row">
                         <div className="p-2 reserva">Hora</div>
-
-                        <Button variant="none" className="btn-search mr-2">
-                            17:00
-                        </Button>
-                        <Button variant="none" className="btn-search">
-                            22:00
-                        </Button>
+                        {detailMovie.schedule.map((schedule, key) => {
+                            return (
+                                <Button
+                                    variant="none"
+                                    className="btn-search mr-2"
+                                    key={key}
+                                >
+                                    {schedule.hour}
+                                </Button>
+                            );
+                        })}
                     </Col>
-
                     <Col lg={2} className="px-3 pb-2 d-flex flex-row">
                         <Button variant="none" className="btn-search">
                             Reservar

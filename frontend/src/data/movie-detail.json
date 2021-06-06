@@ -1,0 +1,55 @@
+
+    {
+        "complexes": [
+            {
+                "site" : "Seleccione"
+            },
+            {
+                "site" : "Caballito"
+            },
+            {
+                "site" : "Puerto Madero"
+            },
+            {
+                "site" : "Palermo"
+            }
+        ],
+        "rooms": [
+            {
+                "type" : "Classic"
+            },
+            {
+                "type" : "GC"
+            },
+            {
+                "type" : "4D"
+            },
+            {
+                "type" : "MS"
+            }
+        ],
+        "languages": [
+            {
+                "type" : "Español"
+            },
+            {
+                "type" : "Subtitulado"
+            }
+        ],
+        "formats": [
+            {
+                "type" : "2D"
+            },
+            {
+                "type" : "3D"
+            }
+        ],
+        "schedule": [
+            {
+                "hour" : "17:00"
+            },
+            {
+                "hour" : "22:00"
+            }
+        ]
+    }

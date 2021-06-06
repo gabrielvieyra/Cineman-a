@@ -7,7 +7,6 @@ const ListadoPeliculas = (props) => {
     const { type, searchPub, user } = props;
 
     const [peliculas, setPeliculas] = useState([]);
-
     const [favoritos, setFavoritos] = useState([]);
 
     const handleChangeFavStatus = (isFav, pelId, userId) => {
