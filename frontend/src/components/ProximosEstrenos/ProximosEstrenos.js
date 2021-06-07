@@ -29,7 +29,7 @@ const ProximosEstrenos = (props) => {
                 cargarListadoProximamente();
 
                 Swal.fire({
-                    title: data.message,
+                    text: data.message,
                     icon: "success"
                 });
             });

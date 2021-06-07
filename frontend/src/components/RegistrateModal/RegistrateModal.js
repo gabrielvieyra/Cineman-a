@@ -4,6 +4,8 @@ import "../LoginModal/LoginModal.css";
 import Swal from "sweetalert2";
 
 const RegistrateModal = (props) => {
+    const { show, handleHide } = props;
+
     const handleRegistroClick = () => {
         let url = "http://localhost:8888/auth/registro";
 
@@ -66,11 +68,7 @@ const RegistrateModal = (props) => {
     };
 
     return (
-        <Modal
-            className="login-modal"
-            show={props.show}
-            onHide={props.handleHide}
-        >
+        <Modal className="login-modal" show={show} onHide={handleHide}>
             <Modal.Header closeButton>
                 <Modal.Title className="login-title">Registrate</Modal.Title>
             </Modal.Header>

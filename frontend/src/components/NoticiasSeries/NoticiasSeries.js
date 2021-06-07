@@ -28,7 +28,7 @@ const NoticiasSeries = (props) => {
                 cargarNoticiasSeries();
 
                 Swal.fire({
-                    title: data.message,
+                    text: data.message,
                     icon: "success"
                 });
             });
