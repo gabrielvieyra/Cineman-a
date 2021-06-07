@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import "../LoginModal/LoginModal.css";
 import Swal from "sweetalert2";
+import TextWithInputTwo from "../TextWithInputTwo/TextWithInputTwo";
 
 const RegistrateModal = (props) => {
     const { show, handleHide } = props;
@@ -51,20 +52,20 @@ const RegistrateModal = (props) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleNombreCompletoChange = (event) => {
-        setNombreCompleto(event.target.value);
+    const handleNombreCompletoChange = (inputValue) => {
+        setNombreCompleto(inputValue);
     };
 
-    const handleNombreUsuarioChange = (event) => {
-        setNombreUsuario(event.target.value);
+    const handleNombreUsuarioChange = (inputValue) => {
+        setNombreUsuario(inputValue);
     };
 
-    const handleEmailChange = (event) => {
-        setEmail(event.target.value);
+    const handleEmailChange = (inputValue) => {
+        setEmail(inputValue);
     };
 
-    const handlePasswordChange = (event) => {
-        setPassword(event.target.value);
+    const handlePasswordChange = (inputValue) => {
+        setPassword(inputValue);
     };
 
     return (
@@ -74,45 +75,33 @@ const RegistrateModal = (props) => {
             </Modal.Header>
 
             <Modal.Body>
-                <Form.Group>
-                    <Form.Label>Nombre y apellido</Form.Label>
-                    <Form.Control
-                        type="text"
-                        required="required"
-                        value={nombreCompleto}
-                        onChange={handleNombreCompletoChange}
-                    />
-                </Form.Group>
+                <TextWithInputTwo
+                    label="Nombre y apellido"
+                    value={nombreCompleto}
+                    handleCallback={handleNombreCompletoChange}
+                    type="text"
+                />
 
-                <Form.Group>
-                    <Form.Label>Nombre de usuario</Form.Label>
-                    <Form.Control
-                        type="text"
-                        required="required"
-                        value={nombreUsuario}
-                        onChange={handleNombreUsuarioChange}
-                    />
-                </Form.Group>
+                <TextWithInputTwo
+                    label="Nombre de usuario"
+                    value={nombreUsuario}
+                    handleCallback={handleNombreUsuarioChange}
+                    type="text"
+                />
 
-                <Form.Group>
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control
-                        type="email"
-                        required="required"
-                        value={email}
-                        onChange={handleEmailChange}
-                    />
-                </Form.Group>
+                <TextWithInputTwo
+                    label="Email"
+                    value={email}
+                    handleCallback={handleEmailChange}
+                    type="email"
+                />
 
-                <Form.Group>
-                    <Form.Label>Contraseña</Form.Label>
-                    <Form.Control
-                        type="password"
-                        required="required"
-                        value={password}
-                        onChange={handlePasswordChange}
-                    />
-                </Form.Group>
+                <TextWithInputTwo
+                    label="Contraseña"
+                    value={password}
+                    handleCallback={handlePasswordChange}
+                    type="password"
+                />
 
                 <Form.Group>
                     <Button
