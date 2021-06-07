@@ -127,15 +127,15 @@ const NavigationBar = (props) => {
                                     </Button>
                                 </div>
                             ) : (
-                                <>
+                                <div className="d-flex">
                                     <Link
                                         to={"/favoritos"}
-                                        className="nav-header nav-link"
+                                        className="nav-header nav-link pl-md-3 pl-0"
                                     >
                                         Favoritos
                                     </Link>
 
-                                    <NavDropdown alignRight title={user.nombre}>
+                                    <NavDropdown title={user.nombre}>
                                         <NavDropdown.Item
                                             className="nav-header"
                                             onClick={() => {
@@ -152,7 +152,7 @@ const NavigationBar = (props) => {
                                             Cerrar sesión
                                         </NavDropdown.Item>
                                     </NavDropdown>
-                                </>
+                                </div>
                             )}
                         </div>
                     </div>

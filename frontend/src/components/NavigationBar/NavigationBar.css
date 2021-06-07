@@ -30,3 +30,17 @@
 button:focus {
     outline: 5px auto rgba(0, 0, 0, 0.1);
 }
+
+a {
+    color: #000092;
+}
+
+a:hover {
+    color: #212529 !important;
+    opacity: 0.9;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+    background-color: #f8f9fa;
+}

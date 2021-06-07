@@ -29,7 +29,7 @@ const ListadoPeliculas = (props) => {
                 cargarListadoPeliculas();
 
                 Swal.fire({
-                    title: data.message,
+                    text: data.message,
                     icon: "success"
                 });
             });

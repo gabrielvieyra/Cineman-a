@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Modal, Button, Form, Col, Row } from "react-bootstrap";
 import "./LoginModal.css";
 import Swal from "sweetalert2";
+import TextWithInput from "../TextWithInput/TextWithInput";
 
 const LoginModal = (props) => {
     const { show, handleLoginSuccess, handleHide } = props;
@@ -25,6 +26,11 @@ const LoginModal = (props) => {
             .then((response) => response.json())
             .then((data) => {
                 if (data.status === "ok") {
+                    Swal.fire({
+                        text: data.message,
+                        icon: "success"
+                    });
+
                     handleLoginSuccess(data.loggedUser);
                     handleHide();
                 } else {
@@ -42,12 +48,12 @@ const LoginModal = (props) => {
     const [nombreUsuario, setNombreUsuario] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleUserNameChange = (event) => {
-        setNombreUsuario(event.target.value);
+    const handleUserNameChange = (inputValue) => {
+        setNombreUsuario(inputValue);
     };
 
-    const handlePasswordChange = (event) => {
-        setPassword(event.target.value);
+    const handlePasswordChange = (inputValue) => {
+        setPassword(inputValue);
     };
 
     return (
@@ -57,41 +63,18 @@ const LoginModal = (props) => {
             </Modal.Header>
 
             <Modal.Body>
-                <Form.Group>
-                    <Row>
-                        <Col md={4} className="py-2">
-                            <Form.Label className="m-0">
-                                Nombre de usuario
-                            </Form.Label>
-                        </Col>
+                <TextWithInput
+                    label="Nombre de usuario"
+                    value={nombreUsuario}
+                    handleCallback={handleUserNameChange}
+                    type="text"
+                />
 
-                        <Col md={8}>
-                            <Form.Control
-                                type="text"
-                                required="required"
-                                value={nombreUsuario}
-                                onChange={handleUserNameChange}
-                            />
-                        </Col>
-                    </Row>
-                </Form.Group>
-
-                <Form.Group>
-                    <Row>
-                        <Col md={4} className="py-2">
-                            <Form.Label className="m-0">Contraseña</Form.Label>
-                        </Col>
-
-                        <Col md={8}>
-                            <Form.Control
-                                type="password"
-                                required="required"
-                                value={password}
-                                onChange={handlePasswordChange}
-                            />
-                        </Col>
-                    </Row>
-                </Form.Group>
+                <TextWithInput
+                    label="Contraseña"
+                    value={password}
+                    handleCallback={handlePasswordChange}
+                />
 
                 <Form.Group>
                     <Row>
