@@ -4,8 +4,9 @@ import Noticias from "../Noticias/Noticias";
 import Swal from "sweetalert2";
 
 const NoticiasSeries = (props) => {
-    const [series, setSeries] = useState([]);
+    const { type, user, searchPub } = props;
 
+    const [series, setSeries] = useState([]);
     const [favoritos, setFavoritos] = useState([]);
 
     const handleChangeFavStatus = (isFav, notId, userId) => {
@@ -37,20 +38,20 @@ const NoticiasSeries = (props) => {
     const cargarNoticiasSeries = () => {
         let endpoint = "noticias/series";
 
-        if (props.type === "noticias" && props.searchPub) {
-            endpoint += "/search/" + props.searchPub;
+        if (type === "noticias" && searchPub) {
+            endpoint += "/search/" + searchPub;
         } else {
-            if (props.user) {
-                switch (props.type) {
+            if (user) {
+                switch (type) {
                     case "favoritos":
-                        endpoint = "favoritos/series/" + props.user.id;
+                        endpoint = "favoritos/series/" + user.id;
                         break;
                 }
             }
         }
 
-        if (props.user) {
-            fetch(`http://localhost:8888/favoritos/series/${props.user.id}`)
+        if (user) {
+            fetch(`http://localhost:8888/favoritos/series/${user.id}`)
                 .then((response) => response.json())
                 .then((data) => {
                     setFavoritos(data);
@@ -71,7 +72,7 @@ const NoticiasSeries = (props) => {
         }
     };
 
-    useEffect(cargarNoticiasSeries, [props.user, props.searchPub]);
+    useEffect(cargarNoticiasSeries, [user, searchPub]);
 
     const isUserFav = (idNot) => {
         return favoritos.filter((favorito) => idNot === favorito.not_id).length;
@@ -80,7 +81,7 @@ const NoticiasSeries = (props) => {
     return (
         <article>
             <Row>
-                {series.map((serie) => {
+                {series.map((serie, key) => {
                     return (
                         <Noticias
                             imagen={serie.not_imagen}
@@ -88,10 +89,11 @@ const NoticiasSeries = (props) => {
                             texto={serie.not_texto}
                             publicacion={serie.not_publicacion}
                             id={serie.not_id}
-                            type={props.type}
-                            user={props.user}
+                            type={type}
+                            user={user}
                             isFav={isUserFav(serie.not_id)}
                             onChangeFavStatus={handleChangeFavStatus}
+                            key={serie.not_id ? serie.not_id : key}
                         />
                     );
                 })}
