@@ -1,13 +1,10 @@
 import React from "react";
-import Accordion from "react-bootstrap/Accordion";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
-import Cine from "../Cine/Cine";
+import { Accordion, Card, Button, Row, Col, Container } from "react-bootstrap";
+import RoomsCinema from "../RoomsCinema/RoomsCinema";
 
 const AcordeonCine = (props) => {
+    const { franquicia, ubicacion } = props;
+
     return (
         <Accordion>
             <Card>
@@ -18,7 +15,7 @@ const AcordeonCine = (props) => {
                         variant="none"
                         eventKey="0"
                     >
-                        {props.franquicia}
+                        {franquicia}
                     </Accordion.Toggle>
                 </Card.Header>
 
@@ -27,16 +24,17 @@ const AcordeonCine = (props) => {
                         <Row>
                             <Col md={4} className="p-3">
                                 <iframe
-                                    src={props.ubicacion}
+                                    src={ubicacion}
                                     className="w-100 h-100"
                                     frameborder="0"
                                     allowfullscreen=""
                                     aria-hidden="false"
                                     tabindex="0"
+                                    title={franquicia}
                                 ></iframe>
                             </Col>
 
-                            <Cine />
+                            <RoomsCinema />
                         </Row>
                     </Accordion.Collapse>
                 </Container>

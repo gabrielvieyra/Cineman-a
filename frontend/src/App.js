@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import Container from "react-bootstrap/Container";
+import { Container, Row, Col } from "react-bootstrap";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 import Titulo from "./components/Titulo/Titulo";
 import ListadoPeliculas from "./components/ListadoPeliculas/ListadoPeliculas";
@@ -18,9 +18,9 @@ import Footer from "./components/Footer/Footer";
 import NoticiasCine from "./components/NoticiasCine/NoticiasCine";
 import NoticiasSeries from "./components/NoticiasSeries/NoticiasSeries";
 import AccordionCine from "./components/AccordionCine/AccordionCine";
-import AccordionCineBottom from "./components/AccordionCineBottom/AccordionCineBottom";
 import AccordionCandy from "./components/AccordionCandy/AccordionCandy";
 import AccordionCandyBottom from "./components/AccordionCandyBottom/AccordionCandyBottom";
+import cinemaDetail from "./data/cinema-detail.json";
 
 function App() {
     const [usuario, setUsuario] = useState(null);
@@ -110,21 +110,22 @@ function App() {
                         children={
                             <>
                                 <Slider />
-
-                                <AccordionCine
-                                    franquicia="Cinemanía Caballito"
-                                    ubicacion="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.5168066320443!2d-58.43085368423646!3d-34.61637806567606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca5b53585ed3%3A0xf9cb2435f6e602ca!2sAv.%20La%20Plata%2096%2C%20C1184AAN%20CABA!5e0!3m2!1ses!2sar!4v1585536661166!5m2!1ses!2sar"
-                                />
-
-                                <AccordionCine
-                                    franquicia="Cinemanía Puerto Madero"
-                                    ubicacion="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.3290232731274!2d-58.36709428423636!3d-34.62112476592752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a334d193f8300d%3A0x36dda3cf7d0c7ce!2sAv.%20Alicia%20Moreau%20de%20Justo%201920%2C%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1585542129614!5m2!1ses!2sar"
-                                />
-
-                                <AccordionCineBottom
-                                    franquicia="Cinemanía Palermo"
-                                    ubicacion="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.6986946255333!2d-58.41245018423718!3d-34.5864897640948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca821285d881%3A0xda2445f84f2a86e0!2sBeruti%203399%2C%20C1425BBQ%20CABA!5e0!3m2!1ses!2sar!4v1585544213556!5m2!1ses!2sar"
-                                />
+                                <Row className="mb-2">
+                                    <Col>
+                                        {cinemaDetail.cinemas.map(
+                                            (cinema, key) => {
+                                                return (
+                                                    <AccordionCine
+                                                        franquicia={
+                                                            cinema.cinema
+                                                        }
+                                                        ubicacion={cinema.site}
+                                                    />
+                                                );
+                                            }
+                                        )}
+                                    </Col>
+                                </Row>
                             </>
                         }
                     />

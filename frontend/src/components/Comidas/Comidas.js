@@ -2,7 +2,7 @@ import React from "react";
 import "../AccordionCandy/AccordionCandy.css";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
-import Precios from "../Precios/Precios";
+import Precios from "../Room/Room";
 
 const Comidas = () => {
     return (

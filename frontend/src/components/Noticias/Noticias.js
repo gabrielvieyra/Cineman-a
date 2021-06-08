@@ -10,7 +10,7 @@ const Noticias = (props) => {
     };
 
     return (
-        <Col lg={4} className="d-flex align-items-stretch mb-2">
+        <Col lg={4} md={6} className="d-flex align-items-stretch mb-2">
             <Card>
                 <img className="card-img-top" src={props.imagen}></img>
                 <Card.Body className="card-block bg-light p-2">
