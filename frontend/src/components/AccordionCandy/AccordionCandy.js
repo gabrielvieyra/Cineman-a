@@ -1,12 +1,11 @@
 import React from "react";
-import Accordion from "react-bootstrap/Accordion";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
+import { Accordion, Card, Button, Row, Container } from "react-bootstrap";
 import Comidas from "../Comidas/Comidas";
+import Bebidas from "../Bebidas/Bebidas";
 
 const AcordeonCandy = (props) => {
+    const { title, type } = props;
+
     return (
         <Accordion>
             <Card>
@@ -17,15 +16,13 @@ const AcordeonCandy = (props) => {
                         variant="none"
                         eventKey="0"
                     >
-                        {props.categoria}
+                        {title}
                     </Accordion.Toggle>
                 </Card.Header>
 
                 <Container>
                     <Accordion.Collapse eventKey="0">
-                        <Row>
-                            <Comidas />
-                        </Row>
+                        <Row>{type === "food" ? <Comidas /> : <Bebidas />}</Row>
                     </Accordion.Collapse>
                 </Container>
             </Card>

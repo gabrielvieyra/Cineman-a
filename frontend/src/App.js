@@ -19,7 +19,6 @@ import NoticiasCine from "./components/NoticiasCine/NoticiasCine";
 import NoticiasSeries from "./components/NoticiasSeries/NoticiasSeries";
 import AccordionCine from "./components/AccordionCine/AccordionCine";
 import AccordionCandy from "./components/AccordionCandy/AccordionCandy";
-import AccordionCandyBottom from "./components/AccordionCandyBottom/AccordionCandyBottom";
 import cinemaDetail from "./data/cinema-detail.json";
 
 function App() {
@@ -120,6 +119,7 @@ function App() {
                                                             cinema.cinema
                                                         }
                                                         ubicacion={cinema.site}
+                                                        key={key}
                                                     />
                                                 );
                                             }
@@ -136,10 +136,21 @@ function App() {
                         children={
                             <>
                                 <Slider />
-
-                                <AccordionCandy categoria="Comidas" />
-
-                                <AccordionCandyBottom categoria="Bebidas" />
+                                <Row className="mb-2">
+                                    <Col>
+                                        {cinemaDetail.candys.map(
+                                            (candy, key) => {
+                                                return (
+                                                    <AccordionCandy
+                                                        title={candy.title}
+                                                        type={candy.type}
+                                                        key={key}
+                                                    />
+                                                );
+                                            }
+                                        )}
+                                    </Col>
+                                </Row>
                             </>
                         }
                     />

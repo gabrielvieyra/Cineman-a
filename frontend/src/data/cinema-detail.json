@@ -31,5 +31,233 @@
                 "category" : "Miércoles",
                 "price" : "$265"
             }
+        ],
+        "candys": [
+            {
+                "type" : "food",
+                "title" : "Comidas"
+            },
+            {
+                "type" : "drink",
+                "title" : "Bebidas"
+            }
+        ],
+        "pizzas": [
+            {
+                "category" : "Muzzarella",
+                "price" : "$250"
+            },
+            {
+                "category" : "Pizzeta de muzzarella",
+                "price" : "$160"
+            },
+            {
+                "category" : "Vegetariana",
+                "price" : "$250"
+            },
+            {
+                "category" : "Bastones de muzarella",
+                "price" : "$250"
+            }
+        ],
+        "sandwiches": [
+            {
+                "category" : "Hamburguesa casera",
+                "price" : "$290"
+            },
+            {
+                "category" : "Sandwich de cerdo",
+                "price" : "$300"
+            },
+            {
+                "category" : "Lomito",
+                "price" : "$300"
+            },
+            {
+                "category" : "Panini vegetariano",
+                "price" : "$290"
+            }
+        ],
+        "postres": [
+            {
+                "category" : "Cremoso de chocolate",
+                "price" : "$200"
+            },
+            {
+                "category" : "Delicia de chocolate",
+                "price" : "$200"
+            },
+            {
+                "category" : "Crocante de manzana",
+                "price" : "$200"
+            },
+            {
+                "category" : "Helado freddo (dos bochas)",
+                "price" : "$200"
+            }
+        ],
+        "pasteleria": [
+            {
+                "category" : "Cheesecake",
+                "price" : "$160"
+            },
+            {
+                "category" : "Budín de limón",
+                "price" : "$160"
+            },
+            {
+                "category" : "Brownie con nueces",
+                "price" : "$160"
+            },
+            {
+                "category" : "Opción con café",
+                "price" : "$250"
+            }
+        ],
+        "cafeteria": [
+            {
+                "category" : "Medialuna de manteca",
+                "price" : "$45"
+            },
+            {
+                "category" : "Café con dos medialunas",
+                "price" : "$180"
+            },
+            {
+                "category" : "Tostado de jamón y queso",
+                "price" : "$200"
+            },
+            {
+                "category" : "Alfajor (consultar variedades)",
+                "price" : "$90"
+            }
+        ],
+        "sugerencias": [
+            {
+                "category" : "Balde de pochoclos",
+                "price" : "$230"
+            },
+            {
+                "category" : "Balde de pochoclos + Bebida",
+                "price" : "$480"
+            },
+            {
+                "category" : "Nachos con cheddar",
+                "price" : "$250"
+            },
+            {
+                "category" : "Agujas de pollo rebozadas",
+                "price" : "$250"
+            }
+        ],
+        "cervezas": [
+            {
+                "category" : "Quilmes-chopp",
+                "price" : "$170"
+            },
+            {
+                "category" : "Stella Artois-copa",
+                "price" : "$190"
+            },
+            {
+                "category" : "Patagonia-copa",
+                "price" : "$200"
+            },
+            {
+                "category" : "Corona 355cc",
+                "price" : "$200"
+            }
+        ],
+        "vinos": [
+            {
+                "category" : "Copa de vino (línea Elementos)",
+                "price" : "$110"
+            },
+            {
+                "category" : "Copa de vino (línea Don David)",
+                "price" : "$150"
+            },
+            {
+                "category" : "Botella Elementos (750 cc)",
+                "price" : "$310"
+            },
+            {
+                "category" : "Botella Don David (750 cc)",
+                "price" : "$370"
+            }
+        ],
+        "bebidasSinAlcohol": [
+            {
+                "category" : "Agua",
+                "price" : "$100"
+            },
+            {
+                "category" : "Agua saborizada",
+                "price" : "$100"
+            },
+            {
+                "category" : "Gaseosas",
+                "price" : "$160"
+            },
+            {
+                "category" : "Jugo de naranja cepita (400cc)",
+                "price" : "$120"
+            }
+        ],
+        "aperitivos": [
+            {
+                "category" : "Campari con Naranja",
+                "price" : "$170"
+            },
+            {
+                "category" : "Aperol Spritz",
+                "price" : "$170"
+            },
+            {
+                "category" : "Fernet Branca con Coca Cola",
+                "price" : "$170"
+            },
+            {
+                "category" : "Fernet Branca Menta con Sprite",
+                "price" : "$170"
+            },
+            {
+                "category" : "Carpano Rosso con pomelo",
+                "price" : "$160"
+            }
+        ],
+        "cafeteriaCinema": [
+            {
+                "category" : "Café Nesspreso",
+                "price" : "$110"
+            },
+            {
+                "category" : "Café cortado",
+                "price" : "$110"
+            },
+            {
+                "category" : "Café con leche",
+                "price" : "$120"
+            },
+            {
+                "category" : "Choco Macchiato",
+                "price" : "$120"
+            },
+            {
+                "category" : "Vainilla Late",
+                "price" : "$120"
+            },
+            {
+                "category" : "Café con dos medialunas",
+                "price" : "$180"
+            },
+            {
+                "category" : "Té (consultar variedades)",
+                "price" : "$100"
+            },
+            {
+                "category" : "Café con tostado",
+                "price" : "$270"
+            }
         ]
     }

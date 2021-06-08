@@ -7,13 +7,13 @@ const RoomsCinema = () => {
     return (
         <>
             <Col md={4} className="p-3">
-                <Room title="Classic" />
-                <Room title="Gold class" />
+                <Room title="Classic" type="room" />
+                <Room title="Gold class" type="room" />
             </Col>
 
             <Col md={4} className="p-3">
-                <Room title="4D" />
-                <Room title="Monster screen" />
+                <Room title="4D" type="room" />
+                <Room title="Monster screen" type="room" />
             </Col>
         </>
     );
