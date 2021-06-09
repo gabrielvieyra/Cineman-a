@@ -1,5 +1,5 @@
 import React from "react";
-import "../AccordionCandy/AccordionCandy.css";
+import "../../App.css";
 import { Card, Col } from "react-bootstrap";
 import cinemaDetail from "../../data/cinema-detail";
 
@@ -7,7 +7,7 @@ const Bebidas = () => {
     return (
         <>
             <Col lg={4} className="p-3">
-                <Card.Title className="title bg-light mb-2 p-2 font-weight-normal">
+                <Card.Title className="titulos bg-light mb-2 p-2 font-weight-normal">
                     Cervezas
                 </Card.Title>
                 {cinemaDetail.cervezas.map((cerveza, key) => {
@@ -22,7 +22,7 @@ const Bebidas = () => {
                     );
                 })}
 
-                <Card.Title className="title bg-light mb-2 p-2 font-weight-normal">
+                <Card.Title className="titulos bg-light mb-2 p-2 font-weight-normal">
                     Vinos
                 </Card.Title>
                 {cinemaDetail.vinos.map((vino, key) => {
@@ -38,7 +38,7 @@ const Bebidas = () => {
                 })}
             </Col>
             <Col lg={4} className="p-3">
-                <Card.Title className="title bg-light mb-2 p-2 font-weight-normal">
+                <Card.Title className="titulos bg-light mb-2 p-2 font-weight-normal">
                     Sin alcohol
                 </Card.Title>
                 {cinemaDetail.bebidasSinAlcohol.map((bebida, key) => {
@@ -53,7 +53,7 @@ const Bebidas = () => {
                     );
                 })}
 
-                <Card.Title className="title bg-light mb-2 p-2 font-weight-normal">
+                <Card.Title className="titulos bg-light mb-2 p-2 font-weight-normal">
                     Aperitivos
                 </Card.Title>
                 {cinemaDetail.aperitivos.map((aperitivo, key) => {
@@ -69,7 +69,7 @@ const Bebidas = () => {
                 })}
             </Col>
             <Col lg={4} className="p-3">
-                <Card.Title className="title bg-light mb-2 p-2 font-weight-normal">
+                <Card.Title className="titulos bg-light mb-2 p-2 font-weight-normal">
                     Cafeteria
                 </Card.Title>
                 {cinemaDetail.cafeteriaCinema.map((cafeteria, key) => {

@@ -2,6 +2,7 @@ import React from "react";
 import { Accordion, Card, Button, Row, Container } from "react-bootstrap";
 import Comidas from "../Comidas/Comidas";
 import Bebidas from "../Bebidas/Bebidas";
+import "../../App.css";
 
 const AcordeonCandy = (props) => {
     const { title, type } = props;
@@ -11,7 +12,7 @@ const AcordeonCandy = (props) => {
             <Card>
                 <Card.Header className="p-2">
                     <Accordion.Toggle
-                        className="title m-0 font-weight-normal px-2 py-0"
+                        className="titulos m-0 font-weight-normal px-2 py-0"
                         as={Button}
                         variant="none"
                         eventKey="0"
