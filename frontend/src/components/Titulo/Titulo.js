@@ -1,7 +1,6 @@
 import React from "react";
 import "../../App.css";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
+import { Row, Container } from "react-bootstrap";
 
 const Titulo = (props) => {
     const { titulo } = props;
