@@ -7,7 +7,7 @@ const Room = (props) => {
 
     return (
         <>
-            <Card.Title className="title bg-light mb-2 p-2 font-weight-normal">
+            <Card.Title className="titulos bg-light mb-2 p-2 font-weight-normal">
                 {title}
             </Card.Title>
             {cinemaDetail.rooms.map((val, key) => {
